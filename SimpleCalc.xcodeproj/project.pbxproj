@@ -14,6 +14,8 @@
 		BFA800BF1E0C10AD0048882C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BFA800BD1E0C10AD0048882C /* LaunchScreen.storyboard */; };
 		BFA800CA1E0C10AD0048882C /* SimpleCalcTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFA800C91E0C10AD0048882C /* SimpleCalcTests.swift */; };
 		BFA800D51E0C10AD0048882C /* SimpleCalcUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFA800D41E0C10AD0048882C /* SimpleCalcUITests.swift */; };
+		BFDACB781E14CD1C00BE8BD0 /* UIView+Border.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFDACB771E14CD1C00BE8BD0 /* UIView+Border.swift */; };
+		BFDACB7A1E1532B700BE8BD0 /* ResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFDACB791E1532B700BE8BD0 /* ResultViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +49,8 @@
 		BFA800D01E0C10AD0048882C /* SimpleCalcUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SimpleCalcUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		BFA800D41E0C10AD0048882C /* SimpleCalcUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleCalcUITests.swift; sourceTree = "<group>"; };
 		BFA800D61E0C10AD0048882C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BFDACB771E14CD1C00BE8BD0 /* UIView+Border.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Border.swift"; sourceTree = "<group>"; };
+		BFDACB791E1532B700BE8BD0 /* ResultViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResultViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,6 +103,8 @@
 			children = (
 				BFA800B41E0C10AD0048882C /* AppDelegate.swift */,
 				BFA800B61E0C10AD0048882C /* ViewController.swift */,
+				BFDACB771E14CD1C00BE8BD0 /* UIView+Border.swift */,
+				BFDACB791E1532B700BE8BD0 /* ResultViewController.swift */,
 				BFA800B81E0C10AD0048882C /* Main.storyboard */,
 				BFA800BB1E0C10AD0048882C /* Assets.xcassets */,
 				BFA800BD1E0C10AD0048882C /* LaunchScreen.storyboard */,
@@ -261,6 +267,8 @@
 			files = (
 				BFA800B71E0C10AD0048882C /* ViewController.swift in Sources */,
 				BFA800B51E0C10AD0048882C /* AppDelegate.swift in Sources */,
+				BFDACB781E14CD1C00BE8BD0 /* UIView+Border.swift in Sources */,
+				BFDACB7A1E1532B700BE8BD0 /* ResultViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -503,6 +511,7 @@
 				BFA800DB1E0C10AD0048882C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		BFA800DC1E0C10AD0048882C /* Build configuration list for PBXNativeTarget "SimpleCalcTests" */ = {
 			isa = XCConfigurationList;
@@ -511,6 +520,7 @@
 				BFA800DE1E0C10AD0048882C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		BFA800DF1E0C10AD0048882C /* Build configuration list for PBXNativeTarget "SimpleCalcUITests" */ = {
 			isa = XCConfigurationList;
@@ -519,6 +529,7 @@
 				BFA800E11E0C10AD0048882C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
