@@ -9,20 +9,16 @@
 import UIKit
 
 class ResultViewController: UIViewController {
+    
+    var percost:String = ""
 
     @IBOutlet weak var resulttextView: UITextView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        cost = ""
-        member = ""
-        acost = ""
-        bcost = ""
-        ccost = ""
-        inputFlag = 0
         
-        
+        percost = String(Int(cost)! / Int(member)!)
+        resulttextView.text = percost
         
     }
 

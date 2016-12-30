@@ -22,6 +22,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var AfixLabel: UILabel!
     @IBOutlet weak var BfixLabel: UILabel!
     @IBOutlet weak var CfixLabel: UILabel!
+    
 
     @IBAction func costButton(_ sender: UIButton) {
         inputFlag = 1
