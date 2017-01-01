@@ -17,6 +17,7 @@
 		BFDACB781E14CD1C00BE8BD0 /* UIView+Border.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFDACB771E14CD1C00BE8BD0 /* UIView+Border.swift */; };
 		BFDACB7A1E1532B700BE8BD0 /* ResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFDACB791E1532B700BE8BD0 /* ResultViewController.swift */; };
 		BFDACB7C1E15BE0300BE8BD0 /* SelectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFDACB7B1E15BE0300BE8BD0 /* SelectViewController.swift */; };
+		BFDACB7E1E1918F300BE8BD0 /* Post-settlementViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFDACB7D1E1918F300BE8BD0 /* Post-settlementViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +54,7 @@
 		BFDACB771E14CD1C00BE8BD0 /* UIView+Border.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Border.swift"; sourceTree = "<group>"; };
 		BFDACB791E1532B700BE8BD0 /* ResultViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResultViewController.swift; sourceTree = "<group>"; };
 		BFDACB7B1E15BE0300BE8BD0 /* SelectViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectViewController.swift; sourceTree = "<group>"; };
+		BFDACB7D1E1918F300BE8BD0 /* Post-settlementViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Post-settlementViewController.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -108,6 +110,7 @@
 				BFDACB771E14CD1C00BE8BD0 /* UIView+Border.swift */,
 				BFDACB791E1532B700BE8BD0 /* ResultViewController.swift */,
 				BFA800B81E0C10AD0048882C /* Main.storyboard */,
+				BFDACB7D1E1918F300BE8BD0 /* Post-settlementViewController.swift */,
 				BFDACB7B1E15BE0300BE8BD0 /* SelectViewController.swift */,
 				BFA800BB1E0C10AD0048882C /* Assets.xcassets */,
 				BFA800BD1E0C10AD0048882C /* LaunchScreen.storyboard */,
@@ -273,6 +276,7 @@
 				BFA800B51E0C10AD0048882C /* AppDelegate.swift in Sources */,
 				BFDACB781E14CD1C00BE8BD0 /* UIView+Border.swift in Sources */,
 				BFDACB7A1E1532B700BE8BD0 /* ResultViewController.swift in Sources */,
+				BFDACB7E1E1918F300BE8BD0 /* Post-settlementViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -8,12 +8,20 @@
 
 import UIKit
 
-var cost:String = ""
-var member:String = ""
-var acost:String = ""
-var bcost:String = ""
-var ccost:String = ""
-var inputFlag:Int = 0
+struct CalcData{
+    var cost: String = ""
+    var member: String = ""
+    var acost: String = ""
+    var bcost: String = ""
+    var ccost: String = ""
+    var inputFlag: Int = 0
+    var indicator: Int = 0
+    var paymember: Int = 0
+    var percost: Int = 0
+    var apayFlag: Int = 0
+    var bpayFlag: Int = 0
+    var cpayFlag: Int = 0
+}
 
 class ViewController: UIViewController {
 
@@ -23,285 +31,276 @@ class ViewController: UIViewController {
     @IBOutlet weak var BfixLabel: UILabel!
     @IBOutlet weak var CfixLabel: UILabel!
     
-
+    var data = CalcData()
+    
     @IBAction func costButton(_ sender: UIButton) {
-        inputFlag = 1
+        data.inputFlag = 1
     }
     @IBAction func memberButton(_ sender: UIButton) {
-        inputFlag = 2
+        data.inputFlag = 2
     }
     
-    @IBAction func AfixButton(_ sender: UIButton) {
-        inputFlag = 3
+    @IBAction func afixButton(_ sender: UIButton) {
+        data.inputFlag = 3
     }
-    @IBAction func BfixButton(_ sender: UIButton) {
-        inputFlag = 4
+    @IBAction func bfixButton(_ sender: UIButton) {
+        data.inputFlag = 4
     }
-    @IBAction func CfixButton(_ sender: UIButton) {
-        inputFlag = 5
+    @IBAction func cfixButton(_ sender: UIButton) {
+        data.inputFlag = 5
     }
-    
+
     
     @IBAction func oneBtn(_ sender: UIButton) {
-        switch inputFlag{
+        switch data.inputFlag {
         case 1:
-            cost += "1"
-            costLabel.text = cost
+            data.cost += "1"
+            costLabel.text = data.cost
         case 2:
-            member += "1"
-            membercountLabel.text = member
+            data.member += "1"
+            membercountLabel.text = data.member
         case 3:
-            acost += "1"
-            AfixLabel.text = acost
+            data.acost += "1"
+            AfixLabel.text = data.acost
         case 4:
-            bcost += "1"
-            BfixLabel.text = bcost
+            data.bcost += "1"
+            BfixLabel.text = data.bcost
         case 5:
-            ccost += "1"
-            CfixLabel.text = ccost
+            data.ccost += "1"
+            CfixLabel.text = data.ccost
         default: break
         }
     }
     @IBAction func twoBtn(_ sender: UIButton) {
-        switch inputFlag{
+        switch data.inputFlag {
         case 1:
-            cost += "2"
-            costLabel.text = cost
+            data.cost += "2"
+            costLabel.text = data.cost
         case 2:
-            member += "2"
-            membercountLabel.text = member
+            data.member += "2"
+            membercountLabel.text = data.member
         case 3:
-            acost += "2"
-            AfixLabel.text = acost
+            data.acost += "2"
+            AfixLabel.text = data.acost
         case 4:
-            bcost += "2"
-            BfixLabel.text = bcost
+            data.bcost += "2"
+            BfixLabel.text = data.bcost
         case 5:
-            ccost += "2"
-            CfixLabel.text = ccost
+            data.ccost += "2"
+            CfixLabel.text = data.ccost
         default: break
-        }    }
+        }
+    }
     
     @IBAction func threeBtn(_ sender: UIButton) {
-        switch inputFlag{
+        switch data.inputFlag {
         case 1:
-            cost += "3"
-            costLabel.text = cost
+            data.cost += "3"
+            costLabel.text = data.cost
         case 2:
-            member += "3"
-            membercountLabel.text = member
+            data.member += "3"
+            membercountLabel.text = data.member
         case 3:
-            acost += "3"
-            AfixLabel.text = acost
+            data.acost += "3"
+            AfixLabel.text = data.acost
         case 4:
-            bcost += "3"
-            BfixLabel.text = bcost
+            data.bcost += "3"
+            BfixLabel.text = data.bcost
         case 5:
-            ccost += "3"
-            CfixLabel.text = ccost
+            data.ccost += "3"
+            CfixLabel.text = data.ccost
         default: break
-        }    }
+        }
+    }
 
     @IBAction func fourBtn(_ sender: UIButton) {
-        switch inputFlag{
+        switch data.inputFlag {
         case 1:
-            cost += "4"
-            costLabel.text = cost
+            data.cost += "4"
+            costLabel.text = data.cost
         case 2:
-            member += "4"
-            membercountLabel.text = member
+            data.member += "4"
+            membercountLabel.text = data.member
         case 3:
-            acost += "4"
-            AfixLabel.text = acost
+            data.acost += "4"
+            AfixLabel.text = data.acost
         case 4:
-            bcost += "4"
-            BfixLabel.text = bcost
+            data.bcost += "4"
+            BfixLabel.text = data.bcost
         case 5:
-            ccost += "4"
-            CfixLabel.text = ccost
+            data.ccost += "4"
+            CfixLabel.text = data.ccost
         default: break
         }
     }
     @IBAction func fiveBtn(_ sender: UIButton) {
-        switch inputFlag{
+        switch data.inputFlag {
         case 1:
-            cost += "5"
-            costLabel.text = cost
+            data.cost += "5"
+            costLabel.text = data.cost
         case 2:
-            member += "5"
-            membercountLabel.text = member
+            data.member += "5"
+            membercountLabel.text = data.member
         case 3:
-            acost += "5"
-            AfixLabel.text = acost
+            data.acost += "5"
+            AfixLabel.text = data.acost
         case 4:
-            bcost += "5"
-            BfixLabel.text = bcost
+            data.bcost += "5"
+            BfixLabel.text = data.bcost
         case 5:
-            ccost += "5"
-            CfixLabel.text = ccost
+            data.ccost += "5"
+            CfixLabel.text = data.ccost
         default: break
         }
     }
     @IBAction func sixBtn(_ sender: UIButton) {
-        switch inputFlag{
+        switch data.inputFlag {
         case 1:
-            cost += "6"
-            costLabel.text = cost
+            data.cost += "6"
+            costLabel.text = data.cost
         case 2:
-            member += "6"
-            membercountLabel.text = member
+            data.member += "6"
+            membercountLabel.text = data.member
         case 3:
-            acost += "6"
-            AfixLabel.text = acost
+            data.acost += "6"
+            AfixLabel.text = data.acost
         case 4:
-            bcost += "6"
-            BfixLabel.text = bcost
+            data.bcost += "6"
+            BfixLabel.text = data.bcost
         case 5:
-            ccost += "6"
-            CfixLabel.text = ccost
+            data.ccost += "6"
+            CfixLabel.text = data.ccost
         default: break
         }
     }
     
     @IBAction func sevenBtn(_ sender: UIButton) {
-        switch inputFlag{
+        switch data.inputFlag {
         case 1:
-            cost += "7"
-            costLabel.text = cost
+            data.cost += "7"
+            costLabel.text = data.cost
         case 2:
-            member += "7"
-            membercountLabel.text = member
+            data.member += "7"
+            membercountLabel.text = data.member
         case 3:
-            acost += "7"
-            AfixLabel.text = acost
+            data.acost += "7"
+            AfixLabel.text = data.acost
         case 4:
-            bcost += "7"
-            BfixLabel.text = bcost
+            data.bcost += "7"
+            BfixLabel.text = data.bcost
         case 5:
-            ccost += "7"
-            CfixLabel.text = ccost
+            data.ccost += "7"
+            CfixLabel.text = data.ccost
         default: break
-        }    }
+        }
+    }
     @IBAction func eightBtn(_ sender: UIButton) {
-        switch inputFlag{
+        switch data.inputFlag {
         case 1:
-            cost += "8"
-            costLabel.text = cost
+            data.cost += "8"
+            costLabel.text = data.cost
         case 2:
-            member += "8"
-            membercountLabel.text = member
+            data.member += "8"
+            membercountLabel.text = data.member
         case 3:
-            acost += "8"
-            AfixLabel.text = acost
+            data.acost += "8"
+            AfixLabel.text = data.acost
         case 4:
-            bcost += "8"
-            BfixLabel.text = bcost
+            data.bcost += "8"
+            BfixLabel.text = data.bcost
         case 5:
-            ccost += "8"
-            CfixLabel.text = ccost
+            data.ccost += "8"
+            CfixLabel.text = data.ccost
         default: break
         }
     }
     @IBAction func nineBtn(_ sender: UIButton) {
-        switch inputFlag{
+        switch data.inputFlag {
         case 1:
-            cost += "9"
-            costLabel.text = cost
+            data.cost += "9"
+            costLabel.text = data.cost
         case 2:
-            member += "9"
-            membercountLabel.text = member
+            data.member += "9"
+            membercountLabel.text = data.member
         case 3:
-            acost += "9"
-            AfixLabel.text = acost
+            data.acost += "9"
+            AfixLabel.text = data.acost
         case 4:
-            bcost += "9"
-            BfixLabel.text = bcost
+            data.bcost += "9"
+            BfixLabel.text = data.bcost
         case 5:
-            ccost += "9"
-            CfixLabel.text = ccost
+            data.ccost += "9"
+            CfixLabel.text = data.ccost
         default: break
         }
     }
     @IBAction func zeroBtn(_ sender: UIButton) {
-        switch inputFlag{
+        switch data.inputFlag {
         case 1:
-            if cost != ""{
-            cost += "0"
-            costLabel.text = cost
-            }
+            data.cost += "0"
+            costLabel.text = data.cost
         case 2:
-            if member != ""{
-            member += "0"
-            membercountLabel.text = member
-            }
+            data.member += "0"
+            membercountLabel.text = data.member
         case 3:
-            if acost != ""{
-            acost += "0"
-            AfixLabel.text = acost
-            }
+            data.acost += "0"
+            AfixLabel.text = data.acost
         case 4:
-            if bcost != ""{
-            bcost += "0"
-            BfixLabel.text = bcost
-            }
+            data.bcost += "0"
+            BfixLabel.text = data.bcost
         case 5:
-            if ccost != ""{
-            ccost += "0"
-            CfixLabel.text = ccost
-            }
+            data.ccost += "0"
+            CfixLabel.text = data.ccost
         default: break
         }
     }
     @IBAction func zerozeroBtn(_ sender: UIButton) {
-        switch inputFlag{
+        switch data.inputFlag {
         case 1:
-            if cost != ""{
-                cost += "00"
-                costLabel.text = cost
-            }
+            data.cost += "00"
+            costLabel.text = data.cost
         case 2:
-            if member != ""{
-                member += "00"
-                membercountLabel.text = member
-            }
+            data.member += "00"
+            membercountLabel.text = data.member
         case 3:
-            if acost != ""{
-                acost += "00"
-                AfixLabel.text = acost
-            }
+            data.acost += "00"
+            AfixLabel.text = data.acost
         case 4:
-            if bcost != ""{
-                bcost += "00"
-                BfixLabel.text = bcost
-            }
+            data.bcost += "00"
+            BfixLabel.text = data.bcost
         case 5:
-            if ccost != ""{
-                ccost += "00"
-                CfixLabel.text = ccost
-            }
+            data.ccost += "00"
+            CfixLabel.text = data.ccost
         default: break
         }
     }
     
-    @IBAction func resuleBtn(_ sender: UIButton) {
+    @IBAction func resultButton(_ sender: UIButton) {
+        data.indicator = 0
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?){
+        super.prepare(for: segue, sender: sender)
         
+        if let destinationViewController = segue.destination as?
+            ResultViewController {
+            destinationViewController.data = data
+        }
         
     }
     
-    
-    
     override func viewDidLoad() {
         super.viewDidLoad()
-            costLabel.text = cost
-            membercountLabel.text = member
-            AfixLabel.text = acost
-            BfixLabel.text = bcost
-            CfixLabel.text = ccost
+            costLabel.text = data.cost
+            membercountLabel.text = data.member
+            AfixLabel.text = data.acost
+            BfixLabel.text = data.bcost
+            CfixLabel.text = data.ccost
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+        
     }
 
 
