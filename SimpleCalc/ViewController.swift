@@ -21,6 +21,10 @@ struct CalcData{
     var apayFlag: Int = 0
     var bpayFlag: Int = 0
     var cpayFlag: Int = 0
+    var aname: String = ""
+    var bname: String = ""
+    var cname: String = ""
+    
 }
 
 class ViewController: UIViewController {
@@ -30,26 +34,46 @@ class ViewController: UIViewController {
     @IBOutlet weak var AfixLabel: UILabel!
     @IBOutlet weak var BfixLabel: UILabel!
     @IBOutlet weak var CfixLabel: UILabel!
+    @IBOutlet weak var costButton: UIButton!
+    @IBOutlet weak var memberButton: UIButton!
+    @IBOutlet weak var afixButton: UIButton!
+    @IBOutlet weak var bfixButton: UIButton!
+    @IBOutlet weak var cfixButton: UIButton!
     
     var data = CalcData()
-    
     @IBAction func costButton(_ sender: UIButton) {
+        bouderClear()
+        costButton.layer.borderWidth = 2;
+        costButton.layer.borderColor = UIColor.red.cgColor
         data.inputFlag = 1
     }
     @IBAction func memberButton(_ sender: UIButton) {
+        bouderClear()
+        memberButton.layer.borderWidth = 2;
+        memberButton.layer.borderColor = UIColor.red.cgColor
         data.inputFlag = 2
     }
     
     @IBAction func afixButton(_ sender: UIButton) {
+        bouderClear()
+        afixButton.layer.borderWidth = 2;
+        afixButton.layer.borderColor = UIColor.red.cgColor
         data.inputFlag = 3
     }
+    
     @IBAction func bfixButton(_ sender: UIButton) {
+        bouderClear()
+        bfixButton.layer.borderWidth = 2;
+        bfixButton.layer.borderColor = UIColor.red.cgColor
         data.inputFlag = 4
     }
+
     @IBAction func cfixButton(_ sender: UIButton) {
+        bouderClear()
+        cfixButton.layer.borderWidth = 2;
+        cfixButton.layer.borderColor = UIColor.red.cgColor
         data.inputFlag = 5
     }
-
     
     @IBAction func oneBtn(_ sender: UIButton) {
         switch data.inputFlag {
@@ -277,6 +301,19 @@ class ViewController: UIViewController {
     
     @IBAction func resultButton(_ sender: UIButton) {
         data.indicator = 0
+    }
+    
+    func bouderClear() -> (){
+        costButton.layer.borderWidth = 1;
+        memberButton.layer.borderWidth = 1;
+        afixButton.layer.borderWidth = 1;
+        bfixButton.layer.borderWidth = 1;
+        cfixButton.layer.borderWidth = 1;
+        costButton.layer.borderColor = UIColor.black.cgColor
+        memberButton.layer.borderColor = UIColor.black.cgColor
+        afixButton.layer.borderColor = UIColor.black.cgColor
+        bfixButton.layer.borderColor = UIColor.black.cgColor
+        cfixButton.layer.borderColor = UIColor.black.cgColor
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?){
