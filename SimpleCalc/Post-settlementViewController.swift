@@ -50,6 +50,21 @@ class Post_settlementViewController: UIViewController {
     }
     
     
+    @IBAction func roundingSegmentedControl(_ sender: UISegmentedControl) {
+        switch sender.selectedSegmentIndex {
+        case 0:
+            data.roundingCost = 1
+        case 1:
+            data.roundingCost = 10
+        case 2:
+            data.roundingCost = 100
+        case 3:
+            data.roundingCost = 1000
+        default:break
+        }
+    }
+    
+    
     @IBAction func oneButton(_ sender: UIButton) {
         switch data.inputFlag {
         case 1:
@@ -238,6 +253,29 @@ class Post_settlementViewController: UIViewController {
         }
     }
     @IBAction func AllClearButton(_ sender: UIButton) {
+        bouderClear()
+        data.cost = ""
+        data.member = ""
+        data.acost = ""
+        data.bcost = ""
+        data.ccost = ""
+        data.inputFlag = 0
+        data.indicator = 0
+        data.paymember = 0
+        data.percost = 0
+        data.apayFlag = 0
+        data.bpayFlag = 0
+        data.cpayFlag = 0
+        data.aname = ""
+        data.bname = ""
+        data.cname = ""
+        membercountLabel.text = ""
+        AcostLabel.text = ""
+        BcostLabel.text = ""
+        CcostLabel.text = ""
+        anameLabel.text = ""
+        bnameLabel.text = ""
+        cnameLabel.text = ""
     }
     
     

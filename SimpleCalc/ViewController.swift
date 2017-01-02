@@ -24,6 +24,7 @@ struct CalcData{
     var aname: String = ""
     var bname: String = ""
     var cname: String = ""
+    var roundingCost: Int = 1
     
 }
 
@@ -34,6 +35,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var AfixLabel: UILabel!
     @IBOutlet weak var BfixLabel: UILabel!
     @IBOutlet weak var CfixLabel: UILabel!
+
     @IBOutlet weak var costButton: UIButton!
     @IBOutlet weak var memberButton: UIButton!
     @IBOutlet weak var afixButton: UIButton!
@@ -74,6 +76,23 @@ class ViewController: UIViewController {
         cfixButton.layer.borderColor = UIColor.red.cgColor
         data.inputFlag = 5
     }
+    
+    
+    @IBAction func roundingSegmentedControl(_ sender: UISegmentedControl) {
+        switch sender.selectedSegmentIndex {
+        case 0:
+            data.roundingCost = 1
+        case 1:
+            data.roundingCost = 10
+        case 2:
+            data.roundingCost = 100
+        case 3:
+            data.roundingCost = 1000
+        default:break
+        }
+    }
+    
+    
     
     @IBAction func oneBtn(_ sender: UIButton) {
         switch data.inputFlag {
