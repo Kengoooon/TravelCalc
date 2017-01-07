@@ -19,16 +19,31 @@ class ResultViewController: UIViewController {
     var pay2: String = ""
     var pay3: String = ""
     
+    func resultCalc(roundingCost:Int) -> String{
+        
+        switch roundingCost {
+        case 1:
+            result = String(format:"%g",(ceil((Double(result)! / 1) * 1)))
+        case 10:
+            result = String(format:"%g",(ceil((Double(result)! / 10) * 10)))
+        case 100:
+            result = String(format:"%g",(ceil((Double(result)! / 100) * 100)))
+        case 1000:
+            result = String(format:"%g",(ceil((Double(result)! / 1000) * 1000)))
+        default:
+            break
+        }
+        return result
+    }
+    
     @IBOutlet weak var resulttextView: UITextView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        print(data)
         
         switch  data.indicator {
         //前精算の場合
-        //固定の計算をまだ実装できていません。
         case 0:
             switch data.roundingCost{
             //1円単位での精算の場合
@@ -43,7 +58,7 @@ class ResultViewController: UIViewController {
                     resulttextView.text = "Aさんは\(data.acost)円 \n Bさんは\(data.bcost)円 \n 一人あたりのお会計は\(result)円です"
                     }else if data.acost != ""{
                     result = String((Int(data.cost)! - Int(data.acost)!) / (Int(data.member)! - 1))
-                        resulttextView.text = "Aさんは\(data.acost) \n 一人あたりのお会計は\(result)円です"
+                        resulttextView.text = "Aさんは\(data.acost)円 \n 一人あたりのお会計は\(result)円です"
                     }
                     
                 }else{
@@ -54,15 +69,15 @@ class ResultViewController: UIViewController {
                 
                     if (data.acost != "" && data.bcost != "" && data.ccost != ""){
                         result = String((Int(data.cost)! - (Int(data.acost)! + Int(data.bcost)!  + Int(data.ccost)!)) / (Int(data.member)! - 3))
-                        result = String(format:"%g",(ceil((Double(result)! / 10) * 10)))
+                        result = resultCalc(roundingCost: data.roundingCost)
                         resulttextView.text = "Aさんは\(data.acost)円 \n Bさんは\(data.bcost)円 \n Cさんは\(data.ccost) \n一人あたりのお会計は\(result)円です"
                     }else if (data.acost != "" && data.bcost != "") {
                         result = String((Int(data.cost)! - (Int(data.acost)! + Int(data.bcost)!)) / (Int(data.member)! - 2))
-                        result = String(format:"%g",(ceil((Double(result)! / 10) * 10)))
+                        result = resultCalc(roundingCost: data.roundingCost)
                         resulttextView.text = "Aさんは\(data.acost)円 \n Bさんは\(data.bcost)円 \n 一人あたりのお会計は\(result)円です"
                     }else if data.acost != "" {
                         result = String((Int(data.cost)! - Int(data.acost)! / (Int(data.member)! - 1)))
-                        result = String(format:"%g",(ceil((Double(result)! / 10) * 10)))
+                        result = resultCalc(roundingCost: data.roundingCost)
                         resulttextView.text = "Aさんは\(data.acost) \n 一人あたりのお会計は\(result)円です"
                     }
 
@@ -75,15 +90,15 @@ class ResultViewController: UIViewController {
                     
                     if data.acost != "" && data.bcost != "" && data.ccost != ""{
                         result = String((Int(data.cost)! - (Int(data.acost)! + Int(data.bcost)!  + Int(data.ccost)!)) / (Int(data.member)! - 1))
-                        result = String(format:"%g",(ceil((Double(result)! / 100) * 100)))
+                        result = resultCalc(roundingCost: data.roundingCost)
                         resulttextView.text = "Aさんは\(data.acost)円 \n Bさんは\(data.bcost)円 \n Cさんは\(data.ccost)円 \n一人あたりのお会計は\(result)円です"
                     }else if data.acost != "" && data.bcost != "" {
                         result = String((Int(data.cost)! - (Int(data.acost)! + Int(data.bcost)!)) / (Int(data.member)! - 2))
-                        result = String(format:"%g",(ceil((Double(result)! / 100) * 100)))
+                        result = resultCalc(roundingCost: data.roundingCost)
                         resulttextView.text = "Aさんは\(data.acost)円 \n Bさんは\(data.bcost)円 \n 一人あたりのお会計は\(result)円です"
                     }else if data.acost != "" {
                         result = String((Int(data.cost)! - Int(data.acost)!) / (Int(data.member)! - 1))
-                        result = String(format:"%g",(ceil((Double(result)! / 100) * 100)))
+                        result = resultCalc(roundingCost: data.roundingCost)
                         resulttextView.text = "Aさんは\(data.acost) \n 一人あたりのお会計は\(result)円です"
                     }
                     
@@ -95,15 +110,15 @@ class ResultViewController: UIViewController {
                     
                     if data.acost != "" && data.bcost != "" && data.ccost != ""{
                         result = String((Int(data.cost)! - (Int(data.acost)! + Int(data.bcost)!  + Int(data.ccost)!)) / (Int(data.member)! - 1))
-                        result = String(format:"%g",(ceil((Double(result)! / 1000) * 1000)))
+                        result = resultCalc(roundingCost: data.roundingCost)
                         resulttextView.text = "Aさんは\(data.acost)円 \n Bさんは\(data.bcost)円 \n Cさんは\(data.ccost)円 \n一人あたりのお会計は\(result)円です"
                     }else if data.acost != "" && data.bcost != "" {
                         result = String((Int(data.cost)! - (Int(data.acost)! + Int(data.bcost)!)) / (Int(data.member)! - 2))
-                        result = String(format:"%g",(ceil((Double(result)! / 1000) * 1000)))
+                        result = resultCalc(roundingCost: data.roundingCost)
                         resulttextView.text = "Aさんは\(data.acost)円 \n Bさんは\(data.bcost)円 \n 一人あたりのお会計は\(result)円です"
                     }else if data.acost != ""{
                         result = String((Int(data.cost)! - Int(data.acost)!) / (Int(data.member)! - 1))
-                        result = String(format:"%g",(ceil((Double(result)! / 1000) * 1000)))
+                        result = resultCalc(roundingCost: data.roundingCost)
                         resulttextView.text = "Aさんは\(data.acost)円 \n 一人あたりのお会計は\(result)円です"
                     }
                     
@@ -123,6 +138,7 @@ class ResultViewController: UIViewController {
             case 1:
                 if data.cost != "" || data.member != ""{
                     
+                    //立て替えをした人の立て替え金額と一人当たりの金額の差額を計算
                     if data.apayFlag == 1{
                     adifference = data.percost - Int(data.acost)!
                     }else if data.acost != ""{
