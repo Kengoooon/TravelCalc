@@ -31,31 +31,83 @@ class ResultViewController: UIViewController {
         //固定の計算をまだ実装できていません。
         case 0:
             switch data.roundingCost{
+            //1円単位での精算の場合
             case 1:
                 if data.cost != "" || data.member != ""{
-                    result = String((Int(data.cost)! / Int(data.member)!))
-                    resulttextView.text = "一人あたりのお会計は\(result)円です"
+                    
+                    if data.acost != "" && data.bcost != "" && data.ccost != ""{
+                    result = String((Int(data.cost)! - (Int(data.acost)! + Int(data.bcost)!  + Int(data.ccost)!)) / (Int(data.member)! - 3))
+                    resulttextView.text = "Aさんは\(data.acost)円 \n Bさんは\(data.bcost)円 \n Cさんは\(data.ccost)円 \n一人あたりのお会計は\(result)円です"
+                    }else if (data.acost != "" && data.bcost != "") {
+                    result = String((Int(data.cost)! - (Int(data.acost)! + Int(data.bcost)!)) / (Int(data.member)! - 2))
+                    resulttextView.text = "Aさんは\(data.acost)円 \n Bさんは\(data.bcost)円 \n 一人あたりのお会計は\(result)円です"
+                    }else if data.acost != ""{
+                    result = String((Int(data.cost)! - Int(data.acost)!) / (Int(data.member)! - 1))
+                        resulttextView.text = "Aさんは\(data.acost) \n 一人あたりのお会計は\(result)円です"
+                    }
+                    
                 }else{
                     resulttextView.text = "Error！入力がありませんでした。"
                 }
             case 10:
                 if data.cost != "" || data.member != ""{
-                    result = String(format:"%g",(ceil((Double(data.cost)! / Double(data.member)!) / 10) * 10))
-                    resulttextView.text = "一人あたりのお会計は\(result)円です"
+                
+                    if (data.acost != "" && data.bcost != "" && data.ccost != ""){
+                        result = String((Int(data.cost)! - (Int(data.acost)! + Int(data.bcost)!  + Int(data.ccost)!)) / (Int(data.member)! - 3))
+                        result = String(format:"%g",(ceil((Double(result)! / 10) * 10)))
+                        resulttextView.text = "Aさんは\(data.acost)円 \n Bさんは\(data.bcost)円 \n Cさんは\(data.ccost) \n一人あたりのお会計は\(result)円です"
+                    }else if (data.acost != "" && data.bcost != "") {
+                        result = String((Int(data.cost)! - (Int(data.acost)! + Int(data.bcost)!)) / (Int(data.member)! - 2))
+                        result = String(format:"%g",(ceil((Double(result)! / 10) * 10)))
+                        resulttextView.text = "Aさんは\(data.acost)円 \n Bさんは\(data.bcost)円 \n 一人あたりのお会計は\(result)円です"
+                    }else if data.acost != "" {
+                        result = String((Int(data.cost)! - Int(data.acost)! / (Int(data.member)! - 1)))
+                        result = String(format:"%g",(ceil((Double(result)! / 10) * 10)))
+                        resulttextView.text = "Aさんは\(data.acost) \n 一人あたりのお会計は\(result)円です"
+                    }
+
+                    
                 }else{
                     resulttextView.text = "Error！入力がありませんでした。"
                 }
             case 100:
                 if data.cost != "" || data.member != ""{
-                    result = String(format:"%g",(ceil((Double(data.cost)! / Double(data.member)!) / 100) * 100))
-                    resulttextView.text = "一人あたりのお会計は\(result)円です"
+                    
+                    if data.acost != "" && data.bcost != "" && data.ccost != ""{
+                        result = String((Int(data.cost)! - (Int(data.acost)! + Int(data.bcost)!  + Int(data.ccost)!)) / (Int(data.member)! - 1))
+                        result = String(format:"%g",(ceil((Double(result)! / 100) * 100)))
+                        resulttextView.text = "Aさんは\(data.acost)円 \n Bさんは\(data.bcost)円 \n Cさんは\(data.ccost)円 \n一人あたりのお会計は\(result)円です"
+                    }else if data.acost != "" && data.bcost != "" {
+                        result = String((Int(data.cost)! - (Int(data.acost)! + Int(data.bcost)!)) / (Int(data.member)! - 2))
+                        result = String(format:"%g",(ceil((Double(result)! / 100) * 100)))
+                        resulttextView.text = "Aさんは\(data.acost)円 \n Bさんは\(data.bcost)円 \n 一人あたりのお会計は\(result)円です"
+                    }else if data.acost != "" {
+                        result = String((Int(data.cost)! - Int(data.acost)!) / (Int(data.member)! - 1))
+                        result = String(format:"%g",(ceil((Double(result)! / 100) * 100)))
+                        resulttextView.text = "Aさんは\(data.acost) \n 一人あたりのお会計は\(result)円です"
+                    }
+                    
                 }else{
                     resulttextView.text = "Error！入力がありませんでした。"
                 }
             case 1000:
                 if data.cost != "" || data.member != ""{
-                    result = String(format:"%g",(ceil((Double(data.cost)! / Double(data.member)!) / 1000) * 1000))
-                    resulttextView.text = "一人あたりのお会計は\(result)円です"
+                    
+                    if data.acost != "" && data.bcost != "" && data.ccost != ""{
+                        result = String((Int(data.cost)! - (Int(data.acost)! + Int(data.bcost)!  + Int(data.ccost)!)) / (Int(data.member)! - 1))
+                        result = String(format:"%g",(ceil((Double(result)! / 1000) * 1000)))
+                        resulttextView.text = "Aさんは\(data.acost)円 \n Bさんは\(data.bcost)円 \n Cさんは\(data.ccost)円 \n一人あたりのお会計は\(result)円です"
+                    }else if data.acost != "" && data.bcost != "" {
+                        result = String((Int(data.cost)! - (Int(data.acost)! + Int(data.bcost)!)) / (Int(data.member)! - 2))
+                        result = String(format:"%g",(ceil((Double(result)! / 1000) * 1000)))
+                        resulttextView.text = "Aさんは\(data.acost)円 \n Bさんは\(data.bcost)円 \n 一人あたりのお会計は\(result)円です"
+                    }else if data.acost != ""{
+                        result = String((Int(data.cost)! - Int(data.acost)!) / (Int(data.member)! - 1))
+                        result = String(format:"%g",(ceil((Double(result)! / 1000) * 1000)))
+                        resulttextView.text = "Aさんは\(data.acost)円 \n 一人あたりのお会計は\(result)円です"
+                    }
+                    
+                    
                 }else{
                     resulttextView.text = "Error！入力がありませんでした。"
                 }

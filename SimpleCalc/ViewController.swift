@@ -25,7 +25,6 @@ struct CalcData{
     var bname: String = ""
     var cname: String = ""
     var roundingCost: Int = 1
-    
 }
 
 class ViewController: UIViewController {
@@ -320,6 +319,9 @@ class ViewController: UIViewController {
     
     @IBAction func resultButton(_ sender: UIButton) {
         data.indicator = 0
+//        data.acost = AfixLabel.text!
+//        data.bcost = BfixLabel.text!
+//        data.ccost = CfixLabel.text!
     }
     
     func bouderClear() -> (){
