@@ -405,14 +405,14 @@ class ResultViewController: UIViewController {
                         case 2:
                             if data.apayFlag == 1 {
                                 pay1 = String(format:"%g",(ceil(Double((bdifference - adifference) / (Int(data.member)! - data.paymember)) / 1000 ) * 1000))
-                                resulttextView.text = "一人あたりのお会計は\(result)円です \n \(data.aname) から B に\(adifference)円 \n その他メンバは \(data.bname) に\(pay1)円払いましょう"
+                                resulttextView.text = "一人あたりのお会計は\(result)円です \n \(data.aname) から \(data.bname) に\(adifference)円 \n その他メンバは \(data.bname) に\(pay1)円払いましょう"
                             }else if data.bpayFlag == 1{
                                 pay1 = String(format:"%g",(ceil(Double((adifference - bdifference) / (Int(data.member)! - data.paymember)) / 1000 ) * 1000))
-                                resulttextView.text = "一人あたりのお会計は\(result)円です \n \(data.bname) から \(data.aname) に\(bdifference)円 \n その他メンバは Aに\(pay1)円払いましょう"
+                                resulttextView.text = "一人あたりのお会計は\(result)円です \n \(data.bname) から \(data.aname) に\(bdifference)円 \n その他メンバは \(data.aname)に\(pay1)円払いましょう"
                             }else{
                                 pay1 = String(format:"%g",(ceil(Double(adifference / (Int(data.member)! - data.paymember)) / 1000 ) * 1000))
                                 pay2 = String(format:"%g",(ceil(Double(bdifference / (Int(data.member)! - data.paymember)) / 1000 ) * 1000))
-                                resulttextView.text = "一人あたりのお会計は\(result)円です \n その他メンバは \n\(data.aname)に\(pay1)円 Bに\(pay2)円払いましょう"
+                                resulttextView.text = "一人あたりのお会計は\(result)円です \n その他メンバは \n\(data.aname)に\(pay1)円 \(data.bname)に\(pay2)円払いましょう"
                             }
                         //立て替えした人数が1人の場合
                         case 1:
