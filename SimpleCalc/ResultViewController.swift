@@ -49,7 +49,7 @@ class ResultViewController: UIViewController {
             //1円単位での精算の場合
             case 1:
                 print(data)
-                if data.cost != "" || data.member != ""{
+                if data.cost != "" && data.member != ""{
                     
                     if data.acost != "" && data.bcost != "" && data.ccost != ""{
                     result = String((Int(data.cost)! - (Int(data.acost)! + Int(data.bcost)!  + Int(data.ccost)!)) / (Int(data.member)! - 3))
@@ -69,7 +69,7 @@ class ResultViewController: UIViewController {
                     resulttextView.text = "Error！入力がありませんでした。"
                 }
             case 10:
-                if data.cost != "" || data.member != ""{
+                if data.cost != "" && data.member != ""{
                 
                     if (data.acost != "" && data.bcost != "" && data.ccost != ""){
                         result = String((Int(data.cost)! - (Int(data.acost)! + Int(data.bcost)!  + Int(data.ccost)!)) / (Int(data.member)! - 3))
@@ -92,7 +92,7 @@ class ResultViewController: UIViewController {
                     resulttextView.text = "Error！入力がありませんでした。"
                 }
             case 100:
-                if data.cost != "" || data.member != ""{
+                if data.cost != "" && data.member != ""{
                     
                     if data.acost != "" && data.bcost != "" && data.ccost != ""{
                         result = String((Int(data.cost)! - (Int(data.acost)! + Int(data.bcost)!  + Int(data.ccost)!)) / (Int(data.member)! - 1))
@@ -116,7 +116,7 @@ class ResultViewController: UIViewController {
                     resulttextView.text = "Error！入力がありませんでした。"
                 }
             case 1000:
-                if data.cost != "" || data.member != ""{
+                if data.cost != "" && data.member != ""{
                     
                     if data.acost != "" && data.bcost != "" && data.ccost != ""{
                         result = String((Int(data.cost)! - (Int(data.acost)! + Int(data.bcost)!  + Int(data.ccost)!)) / (Int(data.member)! - 1))
