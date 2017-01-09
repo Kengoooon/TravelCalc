@@ -23,29 +23,39 @@ class Post_settlementViewController: UIViewController {
     @IBOutlet weak var ccostButton: UIButton!
     
     var data = CalcData()
+    var count: Int = 0
+    var endPoint: Int = 0
     
     @IBAction func memberButton(_ sender: UIButton) {
         bouderClear()
         memberButton.layer.borderWidth = 2;
         memberButton.layer.borderColor = UIColor.red.cgColor
+        membercountLabel.layer.borderWidth = 2;
+        membercountLabel.layer.borderColor = UIColor.red.cgColor
         data.inputFlag = 1
     }
     @IBAction func acostButton(_ sender: UIButton) {
         bouderClear()
         acostButton.layer.borderWidth = 2;
         acostButton.layer.borderColor = UIColor.red.cgColor
+        AcostLabel.layer.borderWidth = 2;
+        AcostLabel.layer.borderColor = UIColor.red.cgColor
         data.inputFlag = 2
     }
     @IBAction func bcostButton(_ sender: UIButton) {
         bouderClear()
         bcostButton.layer.borderWidth = 2;
         bcostButton.layer.borderColor = UIColor.red.cgColor
+        BcostLabel.layer.borderWidth = 2;
+        BcostLabel.layer.borderColor = UIColor.red.cgColor
         data.inputFlag = 3
     }
     @IBAction func ccostButton(_ sender: UIButton) {
         bouderClear()
         ccostButton.layer.borderWidth = 2;
         ccostButton.layer.borderColor = UIColor.red.cgColor
+        CcostLabel.layer.borderWidth = 2;
+        CcostLabel.layer.borderColor = UIColor.red.cgColor
         data.inputFlag = 4
     }
     
@@ -253,29 +263,62 @@ class Post_settlementViewController: UIViewController {
         }
     }
     @IBAction func AllClearButton(_ sender: UIButton) {
-        bouderClear()
-        data.cost = ""
-        data.member = ""
-        data.acost = ""
-        data.bcost = ""
-        data.ccost = ""
-        data.inputFlag = 0
-        data.indicator = 0
-        data.paymember = 0
-        data.percost = 0
-        data.apayFlag = 0
-        data.bpayFlag = 0
-        data.cpayFlag = 0
-        data.aname = ""
-        data.bname = ""
-        data.cname = ""
-        membercountLabel.text = ""
-        AcostLabel.text = ""
-        BcostLabel.text = ""
-        CcostLabel.text = ""
-        anameLabel.text = ""
-        bnameLabel.text = ""
-        cnameLabel.text = ""
+//        bouderClear()
+//        data.cost = ""
+//        data.member = ""
+//        data.acost = ""
+//        data.bcost = ""
+//        data.ccost = ""
+//        data.inputFlag = 0
+//        data.indicator = 0
+//        data.paymember = 0
+//        data.percost = 0
+//        data.apayFlag = 0
+//        data.bpayFlag = 0
+//        data.cpayFlag = 0
+//        data.aname = ""
+//        data.bname = ""
+//        data.cname = ""
+//        membercountLabel.text = ""
+//        AcostLabel.text = ""
+//        BcostLabel.text = ""
+//        CcostLabel.text = ""
+//        anameLabel.text = ""
+//        bnameLabel.text = ""
+//        cnameLabel.text = ""
+        
+        switch data.inputFlag {
+        case 1:
+            if data.member != ""{
+            count = Int(data.member.characters.count)
+            endPoint = count - 1
+            data.member = data.member.substring(with: data.member.index(data.member.startIndex, offsetBy: 0)..<data.member.index(data.member.startIndex, offsetBy: endPoint))
+            membercountLabel.text = data.member
+            }
+        case 2:
+            if data.acost != ""{
+                count = Int(data.acost.characters.count)
+                endPoint = count - 1
+                data.acost = data.acost.substring(with: data.acost.index(data.acost.startIndex, offsetBy: 0)..<data.acost.index(data.acost.startIndex, offsetBy: endPoint))
+                AcostLabel.text = data.acost
+            }
+        case 3:
+            if data.bcost != ""{
+                count = Int(data.bcost.characters.count)
+                endPoint = count - 1
+                data.bcost = data.bcost.substring(with: data.bcost.index(data.bcost.startIndex, offsetBy: 0)..<data.bcost.index(data.bcost.startIndex, offsetBy: endPoint))
+                BcostLabel.text = data.bcost
+            }
+        case 4:
+            if data.ccost != ""{
+                count = Int(data.ccost.characters.count)
+                endPoint = count - 1
+                data.ccost = data.ccost.substring(with: data.ccost.index(data.ccost.startIndex, offsetBy: 0)..<data.ccost.index(data.ccost.startIndex, offsetBy: endPoint))
+                CcostLabel.text = data.ccost
+            }
+            
+        default: break
+        }
     }
     
     
@@ -296,7 +339,12 @@ class Post_settlementViewController: UIViewController {
                 data.cost = data.acost
                 print(data)
                 //一人当たりの支払金額を算出
-                data.percost = (Int(data.cost)! / Int(data.member)!)
+                if membercountLabel.text != "0"{
+                    data.percost = (Int(data.cost)! / Int(data.member)!)
+                }else{
+                    data.errorFlag = 1
+                }
+                
                 //立て替えした人数を代入
                 data.paymember = 1
                 //支払者AとBに入力がある場合
@@ -315,7 +363,12 @@ class Post_settlementViewController: UIViewController {
                 //お会計の総額を算出
                 data.cost = String(Int(data.acost)! + Int(data.bcost)!)
                 //一人当たりの支払金額を算出
+                if membercountLabel.text != "0"{
                 data.percost = (Int(data.cost)! / Int(data.member)!)
+                }else{
+                    data.errorFlag = 1
+                }
+                
                 //立て替えした人数を代入
                 data.paymember = 2
                 
@@ -347,7 +400,11 @@ class Post_settlementViewController: UIViewController {
                 //お会計の総額を算出
                 data.cost = String(Int(data.acost)! + Int(data.bcost)! + Int(data.ccost)!)
                 //一人当たりの支払金額を算出
-                data.percost = (Int(data.cost)! / Int(data.member)!)
+                if membercountLabel.text != "0"{
+                    data.percost = (Int(data.cost)! / Int(data.member)!)
+                }else{
+                    data.errorFlag = 1
+                }
                 //立て替えした人数を代入
                 data.paymember = 3
                 //支払金額が一人当たりの支払金額以下だった場合，その人の支払フラグを立てる
@@ -373,10 +430,18 @@ class Post_settlementViewController: UIViewController {
         acostButton.layer.borderWidth = 1;
         bcostButton.layer.borderWidth = 1;
         ccostButton.layer.borderWidth = 1;
+        membercountLabel.layer.borderWidth = 1;
+        AcostLabel.layer.borderWidth = 1;
+        BcostLabel.layer.borderWidth = 1;
+        CcostLabel.layer.borderWidth = 1;
         memberButton.layer.borderColor = UIColor.black.cgColor
         acostButton.layer.borderColor = UIColor.black.cgColor
         bcostButton.layer.borderColor = UIColor.black.cgColor
         ccostButton.layer.borderColor = UIColor.black.cgColor
+        membercountLabel.layer.borderColor = UIColor.black.cgColor
+        AcostLabel.layer.borderColor = UIColor.black.cgColor
+        BcostLabel.layer.borderColor = UIColor.black.cgColor
+        CcostLabel.layer.borderColor = UIColor.black.cgColor
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?){
@@ -390,9 +455,52 @@ class Post_settlementViewController: UIViewController {
     }
     
     override func viewDidLoad() {
-
         super.viewDidLoad()
+        
+        membercountLabel.isUserInteractionEnabled = true
+        AcostLabel.isUserInteractionEnabled = true
+        BcostLabel.isUserInteractionEnabled = true
+        CcostLabel.isUserInteractionEnabled = true
 
+    }
+    override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
+        super.touchesEnded(touches, with: event)
+        for touch: UITouch in touches {
+            let tag = touch.view!.tag
+            switch tag {
+            case 1:
+                bouderClear()
+                memberButton.layer.borderWidth = 2;
+                memberButton.layer.borderColor = UIColor.red.cgColor
+                membercountLabel.layer.borderWidth = 2;
+                membercountLabel.layer.borderColor = UIColor.red.cgColor
+                data.inputFlag = 1
+            case 2:
+                bouderClear()
+                acostButton.layer.borderWidth = 2;
+                acostButton.layer.borderColor = UIColor.red.cgColor
+                AcostLabel.layer.borderWidth = 2;
+                AcostLabel.layer.borderColor = UIColor.red.cgColor
+                data.inputFlag = 2
+                
+            case 3:
+                bouderClear()
+                bcostButton.layer.borderWidth = 2;
+                bcostButton.layer.borderColor = UIColor.red.cgColor
+                BcostLabel.layer.borderWidth = 2;
+                BcostLabel.layer.borderColor = UIColor.red.cgColor
+                data.inputFlag = 3
+            case 4:
+                bouderClear()
+                ccostButton.layer.borderWidth = 2;
+                ccostButton.layer.borderColor = UIColor.red.cgColor
+                CcostLabel.layer.borderWidth = 2;
+                CcostLabel.layer.borderColor = UIColor.red.cgColor
+                data.inputFlag = 4
+            default:
+                break
+            }
+        }
     }
 
     override func didReceiveMemoryWarning() {

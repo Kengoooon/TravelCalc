@@ -25,6 +25,7 @@ struct CalcData{
     var bname: String = ""
     var cname: String = ""
     var roundingCost: Int = 1
+    var errorFlag: Int = 0
 }
 
 class ViewController: UIViewController {
@@ -42,16 +43,23 @@ class ViewController: UIViewController {
     @IBOutlet weak var cfixButton: UIButton!
     
     var data = CalcData()
+    var count: Int = 0
+    var endPoint: Int = 0
+    
     @IBAction func costButton(_ sender: UIButton) {
         bouderClear()
         costButton.layer.borderWidth = 2;
         costButton.layer.borderColor = UIColor.red.cgColor
+        costLabel.layer.borderWidth = 2;
+        costLabel.layer.borderColor = UIColor.red.cgColor
         data.inputFlag = 1
     }
     @IBAction func memberButton(_ sender: UIButton) {
         bouderClear()
         memberButton.layer.borderWidth = 2;
         memberButton.layer.borderColor = UIColor.red.cgColor
+        membercountLabel.layer.borderWidth = 2;
+        membercountLabel.layer.borderColor = UIColor.red.cgColor
         data.inputFlag = 2
     }
     
@@ -59,6 +67,8 @@ class ViewController: UIViewController {
         bouderClear()
         afixButton.layer.borderWidth = 2;
         afixButton.layer.borderColor = UIColor.red.cgColor
+        AfixLabel.layer.borderWidth = 2;
+        AfixLabel.layer.borderColor = UIColor.red.cgColor
         data.inputFlag = 3
     }
     
@@ -66,6 +76,8 @@ class ViewController: UIViewController {
         bouderClear()
         bfixButton.layer.borderWidth = 2;
         bfixButton.layer.borderColor = UIColor.red.cgColor
+        BfixLabel.layer.borderWidth = 2;
+        BfixLabel.layer.borderColor = UIColor.red.cgColor
         data.inputFlag = 4
     }
 
@@ -73,6 +85,8 @@ class ViewController: UIViewController {
         bouderClear()
         cfixButton.layer.borderWidth = 2;
         cfixButton.layer.borderColor = UIColor.red.cgColor
+        CfixLabel.layer.borderWidth = 2;
+        CfixLabel.layer.borderColor = UIColor.red.cgColor
         data.inputFlag = 5
     }
     
@@ -279,42 +293,105 @@ class ViewController: UIViewController {
     @IBAction func zeroBtn(_ sender: UIButton) {
         switch data.inputFlag {
         case 1:
+            if data.cost != "0"{
             data.cost += "0"
             costLabel.text = data.cost
+            }
         case 2:
+            if data.cost != "0"{
             data.member += "0"
             membercountLabel.text = data.member
+            }
         case 3:
+            if data.cost != "0"{
             data.acost += "0"
             AfixLabel.text = data.acost
+            }
         case 4:
+            if data.cost != "0"{
             data.bcost += "0"
             BfixLabel.text = data.bcost
+            }
         case 5:
+            if data.cost != "0"{
             data.ccost += "0"
             CfixLabel.text = data.ccost
+            }
         default: break
         }
     }
     @IBAction func zerozeroBtn(_ sender: UIButton) {
         switch data.inputFlag {
         case 1:
+            if data.cost != "" && data.cost != "0"{
             data.cost += "00"
             costLabel.text = data.cost
+            }
         case 2:
+            if data.cost != "" && data.cost != "0"{
             data.member += "00"
             membercountLabel.text = data.member
+            }
         case 3:
+            if data.cost != "" && data.cost != "0"{
             data.acost += "00"
             AfixLabel.text = data.acost
+            }
         case 4:
+            if data.cost != "" && data.cost != "0"{
             data.bcost += "00"
             BfixLabel.text = data.bcost
+            }
         case 5:
+            if data.cost != "" && data.cost != "0"{
             data.ccost += "00"
             CfixLabel.text = data.ccost
+            }
         default: break
         }
+    }
+    @IBAction func backspaceButton(_ sender: UIButton) {
+        switch data.inputFlag {
+        case 1:
+            if data.cost != ""{
+                count = Int(data.cost.characters.count)
+                endPoint = count - 1
+                data.cost = data.cost.substring(with: data.cost.index(data.cost.startIndex, offsetBy: 0)..<data.cost.index(data.cost.startIndex, offsetBy: endPoint))
+                costLabel.text = data.cost
+            }
+        case 2:
+            if data.member != ""{
+                count = Int(data.member.characters.count)
+                endPoint = count - 1
+                data.member = data.member.substring(with: data.member.index(data.member.startIndex, offsetBy: 0)..<data.member.index(data.member.startIndex, offsetBy: endPoint))
+                membercountLabel.text = data.member
+            }
+        case 3:
+            if data.acost != ""{
+                count = Int(data.acost.characters.count)
+                endPoint = count - 1
+                data.acost = data.acost.substring(with: data.acost.index(data.acost.startIndex, offsetBy: 0)..<data.acost.index(data.acost.startIndex, offsetBy: endPoint))
+                AfixLabel.text = data.acost
+            }
+        case 4:
+            if data.bcost != ""{
+                count = Int(data.bcost.characters.count)
+                endPoint = count - 1
+                data.bcost = data.bcost.substring(with: data.bcost.index(data.bcost.startIndex, offsetBy: 0)..<data.bcost.index(data.bcost.startIndex, offsetBy: endPoint))
+                BfixLabel.text = data.bcost
+            }
+        case 5:
+            if data.ccost != ""{
+                count = Int(data.ccost.characters.count)
+                endPoint = count - 1
+                data.ccost = data.ccost.substring(with: data.ccost.index(data.ccost.startIndex, offsetBy: 0)..<data.ccost.index(data.ccost.startIndex, offsetBy: endPoint))
+                CfixLabel.text = data.ccost
+            }
+            
+        default: break
+        }
+        
+        
     }
     
     @IBAction func resultButton(_ sender: UIButton) {
@@ -330,11 +407,21 @@ class ViewController: UIViewController {
         afixButton.layer.borderWidth = 1;
         bfixButton.layer.borderWidth = 1;
         cfixButton.layer.borderWidth = 1;
+        costLabel.layer.borderWidth = 1;
+        membercountLabel.layer.borderWidth = 1;
+        AfixLabel.layer.borderWidth = 1;
+        BfixLabel.layer.borderWidth = 1;
+        CfixLabel.layer.borderWidth = 1;
         costButton.layer.borderColor = UIColor.black.cgColor
         memberButton.layer.borderColor = UIColor.black.cgColor
         afixButton.layer.borderColor = UIColor.black.cgColor
         bfixButton.layer.borderColor = UIColor.black.cgColor
         cfixButton.layer.borderColor = UIColor.black.cgColor
+        costLabel.layer.borderColor = UIColor.black.cgColor
+        membercountLabel.layer.borderColor = UIColor.black.cgColor
+        AfixLabel.layer.borderColor = UIColor.black.cgColor
+        BfixLabel.layer.borderColor = UIColor.black.cgColor
+        CfixLabel.layer.borderColor = UIColor.black.cgColor
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?){
@@ -354,11 +441,59 @@ class ViewController: UIViewController {
             AfixLabel.text = data.acost
             BfixLabel.text = data.bcost
             CfixLabel.text = data.ccost
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
         
+        costLabel.isUserInteractionEnabled = true
+        membercountLabel.isUserInteractionEnabled = true
+        AfixLabel.isUserInteractionEnabled = true
+        BfixLabel.isUserInteractionEnabled = true
+        CfixLabel.isUserInteractionEnabled = true
+    
+    }
+    override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
+        super.touchesEnded(touches, with: event)
+        for touch: UITouch in touches {
+            let tag = touch.view!.tag
+            switch tag {
+            case 1:
+                bouderClear()
+                costButton.layer.borderWidth = 2;
+                costButton.layer.borderColor = UIColor.red.cgColor
+                costLabel.layer.borderWidth = 2;
+                costLabel.layer.borderColor = UIColor.red.cgColor
+                data.inputFlag = 1
+            case 2:
+                bouderClear()
+                memberButton.layer.borderWidth = 2;
+                memberButton.layer.borderColor = UIColor.red.cgColor
+                membercountLabel.layer.borderWidth = 2;
+                membercountLabel.layer.borderColor = UIColor.red.cgColor
+                data.inputFlag = 2
+            case 3:
+                bouderClear()
+                afixButton.layer.borderWidth = 2;
+                afixButton.layer.borderColor = UIColor.red.cgColor
+                AfixLabel.layer.borderWidth = 2;
+                AfixLabel.layer.borderColor = UIColor.red.cgColor
+                data.inputFlag = 3
+
+            case 4:
+                bouderClear()
+                bfixButton.layer.borderWidth = 2;
+                bfixButton.layer.borderColor = UIColor.red.cgColor
+                BfixLabel.layer.borderWidth = 2;
+                BfixLabel.layer.borderColor = UIColor.red.cgColor
+                data.inputFlag = 4
+            case 5:
+                bouderClear()
+                cfixButton.layer.borderWidth = 2;
+                cfixButton.layer.borderColor = UIColor.red.cgColor
+                CfixLabel.layer.borderWidth = 2;
+                CfixLabel.layer.borderColor = UIColor.red.cgColor
+                data.inputFlag = 5
+            default:
+                break
+            }
+        }
     }
 
 

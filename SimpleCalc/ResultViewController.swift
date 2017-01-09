@@ -135,6 +135,8 @@ class ResultViewController: UIViewController {
         //事後精算の場合
         case 1:
             
+            if data.errorFlag != 1{
+            
             switch data.roundingCost{
             //1円単位での精算の場合
             case 1:
@@ -443,8 +445,12 @@ class ResultViewController: UIViewController {
                 default:
                     break
                 }
+            }else{
+                resulttextView.text = "Error！入力がありませんでした。"
+            }
             default: break
             }
+            
     }
 
     override func didReceiveMemoryWarning() {
