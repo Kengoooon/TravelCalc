@@ -483,7 +483,6 @@ class ViewController: UIViewController {
                 AfixLabel.layer.borderWidth = 2;
                 AfixLabel.layer.borderColor = UIColor.red.cgColor
                 data.inputFlag = 3
-
             case 4:
                 bouderClear()
                 bfixButton.layer.borderWidth = 2;
