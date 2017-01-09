@@ -26,6 +26,11 @@ class Post_settlementViewController: UIViewController {
     var count: Int = 0
     var endPoint: Int = 0
     
+    
+    @IBAction func back(segue:UIStoryboardSegue){//戻るボタン用
+        print("back")
+    }
+    
     @IBAction func memberButton(_ sender: UIButton) {
         bouderClear()
         memberButton.layer.borderWidth = 2;

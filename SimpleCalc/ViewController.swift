@@ -42,9 +42,16 @@ class ViewController: UIViewController {
     @IBOutlet weak var bfixButton: UIButton!
     @IBOutlet weak var cfixButton: UIButton!
     
+    @IBOutlet weak var resultButton: UIButton!
+    
+    
     var data = CalcData()
     var count: Int = 0
     var endPoint: Int = 0
+    
+    @IBAction func back(segue:UIStoryboardSegue){//戻るボタン用
+        print("back")
+    }
     
     @IBAction func costButton(_ sender: UIButton) {
         bouderClear()
@@ -447,6 +454,7 @@ class ViewController: UIViewController {
         AfixLabel.isUserInteractionEnabled = true
         BfixLabel.isUserInteractionEnabled = true
         CfixLabel.isUserInteractionEnabled = true
+        //resultButton.isEnabled = false
     
     }
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
