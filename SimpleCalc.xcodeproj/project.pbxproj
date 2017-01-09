@@ -211,6 +211,7 @@
 				TargetAttributes = {
 					BFA800B01E0C10AD0048882C = {
 						CreatedOnToolsVersion = 8.1;
+						DevelopmentTeam = ME2P39A3QN;
 						ProvisioningStyle = Automatic;
 					};
 					BFA800C41E0C10AD0048882C = {
@@ -434,9 +435,11 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = ME2P39A3QN;
 				INFOPLIST_FILE = SimpleCalc/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = self.SimpleCalc;
+				PRODUCT_BUNDLE_IDENTIFIER = com.example.travelcalculator;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = 1;
@@ -447,9 +450,11 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = ME2P39A3QN;
 				INFOPLIST_FILE = SimpleCalc/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = self.SimpleCalc;
+				PRODUCT_BUNDLE_IDENTIFIER = com.example.travelcalculator;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = 1;

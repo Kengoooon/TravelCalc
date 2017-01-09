@@ -505,6 +505,15 @@ class Post_settlementViewController: UIViewController {
             default:
                 break
             }
+            if (self.anameLabel.isFirstResponder) {
+                self.anameLabel.resignFirstResponder()
+            }
+            if (self.bnameLabel.isFirstResponder) {
+                self.bnameLabel.resignFirstResponder()
+            }
+            if (self.cnameLabel.isFirstResponder) {
+                self.cnameLabel.resignFirstResponder()
+            }
         }
     }
 
