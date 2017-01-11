@@ -12,10 +12,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Select View Controller-->
         <scene sceneID="PnO-Gg-uu9">
             <objects>
-                <viewController id="dGk-Fv-st0" sceneMemberID="viewController">
+                <viewController id="dGk-Fv-st0" customClass="SelectViewController" customModule="SimpleCalc" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="f5k-t6-Dml"/>
                         <viewControllerLayoutGuide type="bottom" id="cNO-JY-Cm2"/>
@@ -109,6 +109,9 @@
                             <constraint firstItem="KGn-zH-xrJ" firstAttribute="top" secondItem="R2R-Mb-0HC" secondAttribute="bottom" constant="5" id="xD3-Tn-wy3"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="backgroundView" destination="oxm-iQ-6gh" id="A50-t7-ZjV"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="26i-YU-bMG" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -765,6 +768,7 @@
                         <outlet property="BfixLabel" destination="ZXo-8b-s8K" id="273-35-QZN"/>
                         <outlet property="CfixLabel" destination="q6s-yj-pbq" id="cVr-ZC-xWg"/>
                         <outlet property="afixButton" destination="aVq-rb-HhP" id="OV0-v5-Olr"/>
+                        <outlet property="backgroundView" destination="8bC-Xf-vdC" id="phX-07-4y1"/>
                         <outlet property="bfixButton" destination="yZg-zq-PFV" id="axl-EX-t9o"/>
                         <outlet property="cfixButton" destination="Gq8-dG-PHo" id="me1-1z-nsG"/>
                         <outlet property="costButton" destination="NFv-bx-SAQ" id="5FZ-fj-ljN"/>
@@ -1546,6 +1550,7 @@
                         <outlet property="CcostLabel" destination="f4c-PK-2dO" id="21E-b9-xMc"/>
                         <outlet property="acostButton" destination="zPX-KU-5SS" id="Nfd-GZ-dhR"/>
                         <outlet property="anameLabel" destination="GVi-a9-0Ag" id="aY8-5S-l6C"/>
+                        <outlet property="backgroundView" destination="mE5-SA-Cck" id="MqS-7Q-Ito"/>
                         <outlet property="bcostButton" destination="POh-kW-my6" id="zqh-Kw-ab9"/>
                         <outlet property="bnameLabel" destination="HUp-N0-Zly" id="rXf-hG-qre"/>
                         <outlet property="ccostButton" destination="Q1A-fE-8zk" id="WK7-uM-z0G"/>
@@ -1648,6 +1653,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="backgroundView" destination="7Y2-b9-Oci" id="0KC-lW-960"/>
                         <outlet property="resulttextView" destination="TGZ-mW-XA8" id="vuJ-0N-iyS"/>
                     </connections>
                 </viewController>

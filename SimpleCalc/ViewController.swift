@@ -30,6 +30,7 @@ struct CalcData{
 
 class ViewController: UIViewController {
 
+    @IBOutlet weak var backgroundView: UIView!
     @IBOutlet weak var costLabel: UILabel!
     @IBOutlet weak var membercountLabel: UILabel!
     @IBOutlet weak var AfixLabel: UILabel!
@@ -43,7 +44,6 @@ class ViewController: UIViewController {
     @IBOutlet weak var cfixButton: UIButton!
     
     @IBOutlet weak var resultButton: UIButton!
-    
     
     var data = CalcData()
     var count: Int = 0
@@ -455,6 +455,24 @@ class ViewController: UIViewController {
         BfixLabel.isUserInteractionEnabled = true
         CfixLabel.isUserInteractionEnabled = true
         //resultButton.isEnabled = false
+        
+        //グラデーションの設定
+        let gradientLayer = CAGradientLayer()
+        //フレームを用意
+        gradientLayer.frame = backgroundView.bounds
+        
+        //色を定義
+        let color1 = UIColor(red: 0.4, green: 0.7, blue: 0.9, alpha: 1.0).cgColor as CGColor
+        let color2 = UIColor(red: 0.1, green: 0.5, blue: 0.8, alpha: 1.0).cgColor as CGColor
+        let color3 = UIColor.white.cgColor
+        //グラデーションレイヤーに色を設定
+        gradientLayer.colors = [color1, color2,color3]
+        //始点・終点の設定
+        gradientLayer.startPoint = CGPoint(x:0,y:0);
+        gradientLayer.endPoint = CGPoint(x:1.0,y:0.8);
+        //headerviewにグラデーションレイヤーを挿入
+        backgroundView.layer.insertSublayer(gradientLayer,at:0)
+
     
     }
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
