@@ -236,34 +236,50 @@ class Post_settlementViewController: UIViewController {
     @IBAction func zeroButton(_ sender: UIButton) {
         switch data.inputFlag {
         case 1:
+            if data.member != "" && data.member != "0"{
             data.member += "0"
             membercountLabel.text = data.member
+            }
         case 2:
+            if data.acost != "" && data.acost != "0"{
             data.acost += "0"
             AcostLabel.text = data.acost
+            }
         case 3:
+            if data.bcost != "" && data.bcost != "0"{
             data.bcost += "0"
             BcostLabel.text = data.bcost
+            }
         case 4:
+            if data.ccost != "" && data.ccost != "0"{
             data.ccost += "0"
             CcostLabel.text = data.ccost
+            }
         default: break
         }
     }
     @IBAction func zerozeroButton(_ sender: UIButton) {
         switch data.inputFlag {
         case 1:
-            data.member += "00"
-            membercountLabel.text = data.member
+            if data.member != "" && data.member != "0"{
+                data.member += "00"
+                membercountLabel.text = data.member
+            }
         case 2:
-            data.acost += "00"
-            AcostLabel.text = data.acost
+            if data.acost != "" && data.acost != "0"{
+                data.acost += "00"
+                AcostLabel.text = data.acost
+            }
         case 3:
-            data.bcost += "00"
-            BcostLabel.text = data.bcost
+            if data.bcost != "" && data.bcost != "0"{
+                data.bcost += "00"
+                BcostLabel.text = data.bcost
+            }
         case 4:
-            data.ccost += "00"
-            CcostLabel.text = data.ccost
+            if data.ccost != "" && data.ccost != "00"{
+                data.ccost += "00"
+                CcostLabel.text = data.ccost
+            }
         default: break
         }
     }
