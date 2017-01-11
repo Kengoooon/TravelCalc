@@ -724,7 +724,7 @@
                                     <segment title="1円単位"/>
                                     <segment title="10円単位"/>
                                     <segment title="100円単位"/>
-                                    <segment title="1000円単位"/>
+                                    <segment title="500円単位"/>
                                 </segments>
                                 <color key="tintColor" red="0.1340551086" green="0.32152127489999999" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <userDefinedRuntimeAttributes>
@@ -1501,7 +1501,7 @@
                                     <segment title="1円単位"/>
                                     <segment title="10円単位"/>
                                     <segment title="100円単位"/>
-                                    <segment title="1000円単位"/>
+                                    <segment title="500円単位"/>
                                 </segments>
                                 <color key="tintColor" red="0.1340551086" green="0.32152127489999999" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <userDefinedRuntimeAttributes>

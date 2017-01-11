@@ -107,7 +107,7 @@ class ViewController: UIViewController {
         case 2:
             data.roundingCost = 100
         case 3:
-            data.roundingCost = 1000
+            data.roundingCost = 500
         default:break
         }
     }
