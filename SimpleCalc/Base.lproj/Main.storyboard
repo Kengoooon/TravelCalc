@@ -1494,6 +1494,9 @@
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="tQ2-s7-JWh">
                                 <rect key="frame" x="5" y="331" width="365" height="29"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="28" id="jNE-eW-WFd"/>
+                                </constraints>
                                 <segments>
                                     <segment title="1円単位"/>
                                     <segment title="10円単位"/>
@@ -1526,7 +1529,6 @@
                             <constraint firstItem="okh-g4-BQu" firstAttribute="leading" secondItem="mE5-SA-Cck" secondAttribute="leadingMargin" constant="-15" id="8Xo-xw-g9j"/>
                             <constraint firstItem="okh-g4-BQu" firstAttribute="top" secondItem="tQ2-s7-JWh" secondAttribute="bottom" constant="15" id="9qy-po-NVm"/>
                             <constraint firstItem="n7c-66-ATj" firstAttribute="top" secondItem="zsZ-Al-o4r" secondAttribute="bottom" constant="5" id="Abv-kK-Q4q"/>
-                            <constraint firstItem="hgm-z2-HG4" firstAttribute="top" secondItem="mE5-SA-Cck" secondAttribute="top" constant="25" id="BT5-0j-poc"/>
                             <constraint firstItem="hgm-z2-HG4" firstAttribute="leading" secondItem="mE5-SA-Cck" secondAttribute="leading" constant="5" id="IUQ-LK-xiJ"/>
                             <constraint firstAttribute="trailing" secondItem="hgm-z2-HG4" secondAttribute="trailing" constant="5" id="Kew-J4-0Qs"/>
                             <constraint firstAttribute="trailing" secondItem="tQ2-s7-JWh" secondAttribute="trailing" constant="5" id="TmY-Ip-ttf"/>
@@ -1568,13 +1570,12 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="P2x-PB-lA2">
-                                <rect key="frame" x="48" y="582" width="275" height="64"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="P2x-PB-lA2">
+                                <rect key="frame" x="37.5" y="612" width="300" height="50"/>
                                 <color key="backgroundColor" red="0.1340551086" green="0.32152127489999999" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="300" id="DBa-0w-gAU"/>
                                     <constraint firstAttribute="height" constant="50" id="RZZ-MS-eJ5"/>
-                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="40" id="Zdo-hM-W8N"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="35"/>
                                 <state key="normal" title="トップに戻る">
@@ -1597,8 +1598,8 @@
                                     <segue destination="dGk-Fv-st0" kind="presentation" id="g4f-9w-dPZ"/>
                                 </connections>
                             </button>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="TGZ-mW-XA8">
-                                <rect key="frame" x="28" y="56" width="315" height="518"/>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TGZ-mW-XA8">
+                                <rect key="frame" x="26" y="91" width="323" height="491"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -1611,8 +1612,8 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </textView>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="a0t-xi-9Ty">
-                                <rect key="frame" x="28" y="7" width="171" height="41"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="a0t-xi-9Ty">
+                                <rect key="frame" x="26" y="20" width="171" height="41"/>
                                 <color key="backgroundColor" red="0.1340551086" green="0.32152127489999999" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                 <state key="normal" title="＜前画面に戻る">
@@ -1641,7 +1642,6 @@
                             <constraint firstItem="P2x-PB-lA2" firstAttribute="top" secondItem="TGZ-mW-XA8" secondAttribute="bottom" constant="30" id="Twb-86-PoJ"/>
                             <constraint firstAttribute="trailingMargin" secondItem="TGZ-mW-XA8" secondAttribute="trailing" constant="10" id="YAo-MR-fhS"/>
                             <constraint firstItem="P2x-PB-lA2" firstAttribute="centerX" secondItem="7Y2-b9-Oci" secondAttribute="centerX" id="Z5K-QI-1Rx"/>
-                            <constraint firstItem="TGZ-mW-XA8" firstAttribute="top" secondItem="a0t-xi-9Ty" secondAttribute="bottom" constant="10" id="bcS-bf-5FH"/>
                             <constraint firstItem="a0t-xi-9Ty" firstAttribute="top" secondItem="7Y2-b9-Oci" secondAttribute="topMargin" constant="20" id="eW5-Vc-uiH"/>
                             <constraint firstItem="TGZ-mW-XA8" firstAttribute="leading" secondItem="7Y2-b9-Oci" secondAttribute="leadingMargin" constant="10" id="fvC-1e-Pm0"/>
                             <constraint firstItem="TGZ-mW-XA8" firstAttribute="top" secondItem="a0t-xi-9Ty" secondAttribute="bottom" constant="30" id="sFv-qU-Y71"/>
