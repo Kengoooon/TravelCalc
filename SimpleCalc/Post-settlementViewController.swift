@@ -8,7 +8,7 @@
 
 import UIKit
 
-class Post_settlementViewController: UIViewController {
+class Post_settlementViewController: UIViewController,UITextViewDelegate{
     
     @IBOutlet weak var backgroundView: UIView!
     @IBOutlet weak var membercountLabel: UILabel!
@@ -27,8 +27,8 @@ class Post_settlementViewController: UIViewController {
     var count: Int = 0
     var endPoint: Int = 0
     
-    
-    @IBAction func back(segue:UIStoryboardSegue){//戻るボタン用
+    //結果画面の前のページに戻るボタン用
+    @IBAction func back(segue:UIStoryboardSegue){
         print("back")
     }
     
@@ -90,11 +90,15 @@ class Post_settlementViewController: UIViewController {
             data.acost += "1"
             AcostLabel.text = data.acost
         case 3:
+            if data.member != "" && data.acost != ""{
             data.bcost += "1"
             BcostLabel.text = data.bcost
+            }
         case 4:
+            if data.bcost != ""{
             data.ccost += "1"
             CcostLabel.text = data.ccost
+            }
         default: break
         }
     }
@@ -107,11 +111,15 @@ class Post_settlementViewController: UIViewController {
             data.acost += "2"
             AcostLabel.text = data.acost
         case 3:
+            if data.member != "" && data.acost != ""{
             data.bcost += "2"
             BcostLabel.text = data.bcost
+            }
         case 4:
+            if data.bcost != ""{
             data.ccost += "2"
             CcostLabel.text = data.ccost
+            }
         default: break
         }
     }
@@ -124,11 +132,15 @@ class Post_settlementViewController: UIViewController {
             data.acost += "3"
             AcostLabel.text = data.acost
         case 3:
+            if data.member != "" && data.acost != ""{
             data.bcost += "3"
             BcostLabel.text = data.bcost
+            }
         case 4:
+            if data.bcost != ""{
             data.ccost += "3"
             CcostLabel.text = data.ccost
+            }
         default: break
         }
     }
@@ -141,11 +153,15 @@ class Post_settlementViewController: UIViewController {
             data.acost += "4"
             AcostLabel.text = data.acost
         case 3:
+            if data.member != "" && data.acost != ""{
             data.bcost += "4"
             BcostLabel.text = data.bcost
+            }
         case 4:
+            if data.bcost != ""{
             data.ccost += "4"
             CcostLabel.text = data.ccost
+            }
         default: break
         }
     }
@@ -158,11 +174,15 @@ class Post_settlementViewController: UIViewController {
             data.acost += "5"
             AcostLabel.text = data.acost
         case 3:
+            if data.member != "" && data.acost != ""{
             data.bcost += "5"
             BcostLabel.text = data.bcost
+            }
         case 4:
+            if data.bcost != ""{
             data.ccost += "5"
             CcostLabel.text = data.ccost
+            }
         default: break
         }
     }
@@ -175,11 +195,15 @@ class Post_settlementViewController: UIViewController {
             data.acost += "6"
             AcostLabel.text = data.acost
         case 3:
+            if data.member != "" && data.acost != ""{
             data.bcost += "6"
             BcostLabel.text = data.bcost
+            }
         case 4:
+            if data.bcost != ""{
             data.ccost += "6"
             CcostLabel.text = data.ccost
+            }
         default: break
         }
     }
@@ -192,11 +216,15 @@ class Post_settlementViewController: UIViewController {
             data.acost += "7"
             AcostLabel.text = data.acost
         case 3:
+            if data.member != "" && data.acost != ""{
             data.bcost += "7"
             BcostLabel.text = data.bcost
+            }
         case 4:
+            if data.bcost != ""{
             data.ccost += "7"
             CcostLabel.text = data.ccost
+            }
         default: break
         }
     }
@@ -209,11 +237,15 @@ class Post_settlementViewController: UIViewController {
             data.acost += "8"
             AcostLabel.text = data.acost
         case 3:
+            if data.member != "" && data.acost != ""{
             data.bcost += "8"
             BcostLabel.text = data.bcost
+            }
         case 4:
+            if data.bcost != ""{
             data.ccost += "8"
             CcostLabel.text = data.ccost
+            }
         default: break
         }
     }
@@ -226,11 +258,15 @@ class Post_settlementViewController: UIViewController {
             data.acost += "9"
             AcostLabel.text = data.acost
         case 3:
+            if data.member != "" && data.acost != ""{
             data.bcost += "9"
             BcostLabel.text = data.bcost
+            }
         case 4:
+            if data.bcost != ""{
             data.ccost += "9"
             CcostLabel.text = data.ccost
+            }
         default: break
         }
     }
@@ -284,31 +320,9 @@ class Post_settlementViewController: UIViewController {
         default: break
         }
     }
+    //一文字消すボタン
     @IBAction func AllClearButton(_ sender: UIButton) {
-//        bouderClear()
-//        data.cost = ""
-//        data.member = ""
-//        data.acost = ""
-//        data.bcost = ""
-//        data.ccost = ""
-//        data.inputFlag = 0
-//        data.indicator = 0
-//        data.paymember = 0
-//        data.percost = 0
-//        data.apayFlag = 0
-//        data.bpayFlag = 0
-//        data.cpayFlag = 0
-//        data.aname = ""
-//        data.bname = ""
-//        data.cname = ""
-//        membercountLabel.text = ""
-//        AcostLabel.text = ""
-//        BcostLabel.text = ""
-//        CcostLabel.text = ""
-//        anameLabel.text = ""
-//        bnameLabel.text = ""
-//        cnameLabel.text = ""
-        
+
         switch data.inputFlag {
         case 1:
             if data.member != ""{
@@ -343,7 +357,7 @@ class Post_settlementViewController: UIViewController {
         }
     }
     
-    
+    //精算ボタン
     @IBAction func resultButton(_ sender: UIButton) {
         data.indicator = 1
         
@@ -501,8 +515,9 @@ class Post_settlementViewController: UIViewController {
         //headerviewにグラデーションレイヤーを挿入
         backgroundView.layer.insertSublayer(gradientLayer,at:0)
 
-
     }
+    
+    //ラベルにタッチした際、枠線の色を変更
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
         super.touchesEnded(touches, with: event)
         for touch: UITouch in touches {
