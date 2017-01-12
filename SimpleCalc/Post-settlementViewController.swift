@@ -32,37 +32,26 @@ class Post_settlementViewController: UIViewController,UITextViewDelegate{
         print("back")
     }
     
-    @IBAction func memberButton(_ sender: UIButton) {
+    func highlight(button: UIButton, label: UILabel, inputFlag: Int) {
         bouderClear()
-        memberButton.layer.borderWidth = 2;
-        memberButton.layer.borderColor = UIColor.red.cgColor
-        membercountLabel.layer.borderWidth = 2;
-        membercountLabel.layer.borderColor = UIColor.red.cgColor
-        data.inputFlag = 1
+        button.layer.borderWidth = 2
+        button.layer.borderColor = UIColor.red.cgColor
+        label.layer.borderWidth = 2;
+        label.layer.borderColor = UIColor.red.cgColor
+        data.inputFlag = inputFlag
+    }
+    
+    @IBAction func memberButton(_ sender: UIButton) {
+        highlight(button: memberButton, label: membercountLabel, inputFlag: 1)
     }
     @IBAction func acostButton(_ sender: UIButton) {
-        bouderClear()
-        acostButton.layer.borderWidth = 2;
-        acostButton.layer.borderColor = UIColor.red.cgColor
-        AcostLabel.layer.borderWidth = 2;
-        AcostLabel.layer.borderColor = UIColor.red.cgColor
-        data.inputFlag = 2
+        highlight(button: acostButton, label: AcostLabel, inputFlag: 2)
     }
     @IBAction func bcostButton(_ sender: UIButton) {
-        bouderClear()
-        bcostButton.layer.borderWidth = 2;
-        bcostButton.layer.borderColor = UIColor.red.cgColor
-        BcostLabel.layer.borderWidth = 2;
-        BcostLabel.layer.borderColor = UIColor.red.cgColor
-        data.inputFlag = 3
+        highlight(button: bcostButton, label: BcostLabel, inputFlag: 3)
     }
     @IBAction func ccostButton(_ sender: UIButton) {
-        bouderClear()
-        ccostButton.layer.borderWidth = 2;
-        ccostButton.layer.borderColor = UIColor.red.cgColor
-        CcostLabel.layer.borderWidth = 2;
-        CcostLabel.layer.borderColor = UIColor.red.cgColor
-        data.inputFlag = 4
+        highlight(button: ccostButton, label: CcostLabel, inputFlag: 4)
     }
     
     
@@ -80,244 +69,94 @@ class Post_settlementViewController: UIViewController,UITextViewDelegate{
         }
     }
     
+    func buttoninput(number: String){
+        switch data.inputFlag {
+        case 1:
+            data.member += number
+            membercountLabel.text = data.member
+        case 2:
+            data.acost += number
+            AcostLabel.text = data.acost
+        case 3:
+            if data.member != "" && data.acost != ""{
+            data.bcost += number
+            BcostLabel.text = data.bcost
+            }
+        case 4:
+            if data.member != "" && data.acost != "" && data.bcost != ""{
+            data.ccost += number
+            CcostLabel.text = data.ccost
+            }
+        default: break
+        }
+    }
     
-    @IBAction func oneButton(_ sender: UIButton) {
-        switch data.inputFlag {
-        case 1:
-            data.member += "1"
-            membercountLabel.text = data.member
-        case 2:
-            data.acost += "1"
-            AcostLabel.text = data.acost
-        case 3:
-            if data.member != "" && data.acost != ""{
-            data.bcost += "1"
-            BcostLabel.text = data.bcost
-            }
-        case 4:
-            if data.bcost != ""{
-            data.ccost += "1"
-            CcostLabel.text = data.ccost
-            }
-        default: break
-        }
-    }
-    @IBAction func twoButton(_ sender: UIButton) {
-        switch data.inputFlag {
-        case 1:
-            data.member += "2"
-            membercountLabel.text = data.member
-        case 2:
-            data.acost += "2"
-            AcostLabel.text = data.acost
-        case 3:
-            if data.member != "" && data.acost != ""{
-            data.bcost += "2"
-            BcostLabel.text = data.bcost
-            }
-        case 4:
-            if data.bcost != ""{
-            data.ccost += "2"
-            CcostLabel.text = data.ccost
-            }
-        default: break
-        }
-    }
-    @IBAction func threeButton(_ sender: UIButton) {
-        switch data.inputFlag {
-        case 1:
-            data.member += "3"
-            membercountLabel.text = data.member
-        case 2:
-            data.acost += "3"
-            AcostLabel.text = data.acost
-        case 3:
-            if data.member != "" && data.acost != ""{
-            data.bcost += "3"
-            BcostLabel.text = data.bcost
-            }
-        case 4:
-            if data.bcost != ""{
-            data.ccost += "3"
-            CcostLabel.text = data.ccost
-            }
-        default: break
-        }
-    }
-    @IBAction func fourButton(_ sender: UIButton) {
-        switch data.inputFlag {
-        case 1:
-            data.member += "4"
-            membercountLabel.text = data.member
-        case 2:
-            data.acost += "4"
-            AcostLabel.text = data.acost
-        case 3:
-            if data.member != "" && data.acost != ""{
-            data.bcost += "4"
-            BcostLabel.text = data.bcost
-            }
-        case 4:
-            if data.bcost != ""{
-            data.ccost += "4"
-            CcostLabel.text = data.ccost
-            }
-        default: break
-        }
-    }
-    @IBAction func fiveButton(_ sender: UIButton) {
-        switch data.inputFlag {
-        case 1:
-            data.member += "5"
-            membercountLabel.text = data.member
-        case 2:
-            data.acost += "5"
-            AcostLabel.text = data.acost
-        case 3:
-            if data.member != "" && data.acost != ""{
-            data.bcost += "5"
-            BcostLabel.text = data.bcost
-            }
-        case 4:
-            if data.bcost != ""{
-            data.ccost += "5"
-            CcostLabel.text = data.ccost
-            }
-        default: break
-        }
-    }
-    @IBAction func sixButton(_ sender: UIButton) {
-        switch data.inputFlag {
-        case 1:
-            data.member += "6"
-            membercountLabel.text = data.member
-        case 2:
-            data.acost += "6"
-            AcostLabel.text = data.acost
-        case 3:
-            if data.member != "" && data.acost != ""{
-            data.bcost += "6"
-            BcostLabel.text = data.bcost
-            }
-        case 4:
-            if data.bcost != ""{
-            data.ccost += "6"
-            CcostLabel.text = data.ccost
-            }
-        default: break
-        }
-    }
-    @IBAction func sevenButton(_ sender: UIButton) {
-        switch data.inputFlag {
-        case 1:
-            data.member += "7"
-            membercountLabel.text = data.member
-        case 2:
-            data.acost += "7"
-            AcostLabel.text = data.acost
-        case 3:
-            if data.member != "" && data.acost != ""{
-            data.bcost += "7"
-            BcostLabel.text = data.bcost
-            }
-        case 4:
-            if data.bcost != ""{
-            data.ccost += "7"
-            CcostLabel.text = data.ccost
-            }
-        default: break
-        }
-    }
-    @IBAction func eightButton(_ sender: UIButton) {
-        switch data.inputFlag {
-        case 1:
-            data.member += "8"
-            membercountLabel.text = data.member
-        case 2:
-            data.acost += "8"
-            AcostLabel.text = data.acost
-        case 3:
-            if data.member != "" && data.acost != ""{
-            data.bcost += "8"
-            BcostLabel.text = data.bcost
-            }
-        case 4:
-            if data.bcost != ""{
-            data.ccost += "8"
-            CcostLabel.text = data.ccost
-            }
-        default: break
-        }
-    }
-    @IBAction func nineButton(_ sender: UIButton) {
-        switch data.inputFlag {
-        case 1:
-            data.member += "9"
-            membercountLabel.text = data.member
-        case 2:
-            data.acost += "9"
-            AcostLabel.text = data.acost
-        case 3:
-            if data.member != "" && data.acost != ""{
-            data.bcost += "9"
-            BcostLabel.text = data.bcost
-            }
-        case 4:
-            if data.bcost != ""{
-            data.ccost += "9"
-            CcostLabel.text = data.ccost
-            }
-        default: break
-        }
-    }
-    @IBAction func zeroButton(_ sender: UIButton) {
+    func zeroinput(number: String){
         switch data.inputFlag {
         case 1:
             if data.member != "" && data.member != "0"{
-            data.member += "0"
-            membercountLabel.text = data.member
-            }
-        case 2:
-            if data.acost != "" && data.acost != "0"{
-            data.acost += "0"
-            AcostLabel.text = data.acost
-            }
-        case 3:
-            if data.bcost != "" && data.bcost != "0"{
-            data.bcost += "0"
-            BcostLabel.text = data.bcost
-            }
-        case 4:
-            if data.ccost != "" && data.ccost != "0"{
-            data.ccost += "0"
-            CcostLabel.text = data.ccost
-            }
-        default: break
-        }
-    }
-    @IBAction func zerozeroButton(_ sender: UIButton) {
-        switch data.inputFlag {
-        case 1:
-            if data.member != "" && data.member != "0"{
-                data.member += "00"
+                data.member += number
                 membercountLabel.text = data.member
             }
         case 2:
             if data.acost != "" && data.acost != "0"{
-                data.acost += "00"
+                data.acost += number
                 AcostLabel.text = data.acost
             }
         case 3:
             if data.bcost != "" && data.bcost != "0"{
-                data.bcost += "00"
+                data.bcost += number
                 BcostLabel.text = data.bcost
             }
         case 4:
-            if data.ccost != "" && data.ccost != "00"{
-                data.ccost += "00"
+            if data.ccost != "" && data.ccost != "0"{
+                data.ccost += number
                 CcostLabel.text = data.ccost
             }
         default: break
+        }
+    }
+    
+    @IBAction func oneButton(_ sender: UIButton) {
+        buttoninput(number: "1")
+    }
+    @IBAction func twoButton(_ sender: UIButton) {
+        buttoninput(number: "2")
+    }
+    @IBAction func threeButton(_ sender: UIButton) {
+        buttoninput(number: "3")
+    }
+    @IBAction func fourButton(_ sender: UIButton) {
+        buttoninput(number: "4")
+    }
+    @IBAction func fiveButton(_ sender: UIButton) {
+        buttoninput(number: "5")
+    }
+    @IBAction func sixButton(_ sender: UIButton) {
+        buttoninput(number: "6")
+    }
+    @IBAction func sevenButton(_ sender: UIButton) {
+        buttoninput(number: "7")
+    }
+    @IBAction func eightButton(_ sender: UIButton) {
+        buttoninput(number: "8")
+    }
+    @IBAction func nineButton(_ sender: UIButton) {
+        buttoninput(number: "9")
+    }
+    @IBAction func zeroButton(_ sender: UIButton) {
+        zeroinput(number: "0")
+    }
+    @IBAction func zerozeroButton(_ sender: UIButton) {
+        zeroinput(number: "00")
+    }
+    
+    
+    func delete(Label: UILabel,data: String){
+        if data != ""{
+        count = Int(data.characters.count)
+        endPoint = count - 1
+        Label.text = data.substring(with: data.index(data.startIndex, offsetBy: 0)..<data.index(data.startIndex, offsetBy: endPoint))
         }
     }
     //一文字消すボタン
@@ -325,34 +164,13 @@ class Post_settlementViewController: UIViewController,UITextViewDelegate{
 
         switch data.inputFlag {
         case 1:
-            if data.member != ""{
-            count = Int(data.member.characters.count)
-            endPoint = count - 1
-            data.member = data.member.substring(with: data.member.index(data.member.startIndex, offsetBy: 0)..<data.member.index(data.member.startIndex, offsetBy: endPoint))
-            membercountLabel.text = data.member
-            }
+            delete(Label: membercountLabel, data: data.member)
         case 2:
-            if data.acost != ""{
-                count = Int(data.acost.characters.count)
-                endPoint = count - 1
-                data.acost = data.acost.substring(with: data.acost.index(data.acost.startIndex, offsetBy: 0)..<data.acost.index(data.acost.startIndex, offsetBy: endPoint))
-                AcostLabel.text = data.acost
-            }
+            delete(Label: AcostLabel, data: data.acost)
         case 3:
-            if data.bcost != ""{
-                count = Int(data.bcost.characters.count)
-                endPoint = count - 1
-                data.bcost = data.bcost.substring(with: data.bcost.index(data.bcost.startIndex, offsetBy: 0)..<data.bcost.index(data.bcost.startIndex, offsetBy: endPoint))
-                BcostLabel.text = data.bcost
-            }
+            delete(Label: BcostLabel, data: data.bcost)
         case 4:
-            if data.ccost != ""{
-                count = Int(data.ccost.characters.count)
-                endPoint = count - 1
-                data.ccost = data.ccost.substring(with: data.ccost.index(data.ccost.startIndex, offsetBy: 0)..<data.ccost.index(data.ccost.startIndex, offsetBy: endPoint))
-                CcostLabel.text = data.ccost
-            }
-            
+            delete(Label: CcostLabel, data: data.ccost)
         default: break
         }
     }
@@ -524,34 +342,13 @@ class Post_settlementViewController: UIViewController,UITextViewDelegate{
             let tag = touch.view!.tag
             switch tag {
             case 1:
-                bouderClear()
-                memberButton.layer.borderWidth = 2;
-                memberButton.layer.borderColor = UIColor.red.cgColor
-                membercountLabel.layer.borderWidth = 2;
-                membercountLabel.layer.borderColor = UIColor.red.cgColor
-                data.inputFlag = 1
+                highlight(button: memberButton, label: membercountLabel, inputFlag: 1)
             case 2:
-                bouderClear()
-                acostButton.layer.borderWidth = 2;
-                acostButton.layer.borderColor = UIColor.red.cgColor
-                AcostLabel.layer.borderWidth = 2;
-                AcostLabel.layer.borderColor = UIColor.red.cgColor
-                data.inputFlag = 2
-                
+                highlight(button: acostButton, label: AcostLabel, inputFlag: 2)
             case 3:
-                bouderClear()
-                bcostButton.layer.borderWidth = 2;
-                bcostButton.layer.borderColor = UIColor.red.cgColor
-                BcostLabel.layer.borderWidth = 2;
-                BcostLabel.layer.borderColor = UIColor.red.cgColor
-                data.inputFlag = 3
+                highlight(button: bcostButton, label: BcostLabel, inputFlag: 3)
             case 4:
-                bouderClear()
-                ccostButton.layer.borderWidth = 2;
-                ccostButton.layer.borderColor = UIColor.red.cgColor
-                CcostLabel.layer.borderWidth = 2;
-                CcostLabel.layer.borderColor = UIColor.red.cgColor
-                data.inputFlag = 4
+                highlight(button: ccostButton, label: CcostLabel, inputFlag: 4)
             default:
                 break
             }
