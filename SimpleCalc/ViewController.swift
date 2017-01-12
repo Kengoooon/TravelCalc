@@ -15,7 +15,6 @@ struct CalcData{
     var acost: String = ""
     var bcost: String = ""
     var ccost: String = ""
-    var inputFlag: Int = 0
     var indicator: Int = 0
     var paymember: Int = 0
     var percost: Int = 0
@@ -30,7 +29,7 @@ struct CalcData{
 }
 
 class ViewController: UIViewController {
-
+    
     @IBOutlet weak var backgroundView: UIView!
     @IBOutlet weak var costLabel: UILabel!
     @IBOutlet weak var membercountLabel: UILabel!
@@ -53,31 +52,30 @@ class ViewController: UIViewController {
         print("back")
     }
     
-    func highlight(button: UIButton, label: UILabel, inputFlag: Int) {
+    func highlight(button: UIButton, label: UILabel, source: InputSource) {
         bouderClear()
         button.layer.borderWidth = 2
         button.layer.borderColor = UIColor.red.cgColor
         label.layer.borderWidth = 2;
         label.layer.borderColor = UIColor.red.cgColor
-        data.inputFlag = inputFlag
+        inputSource = source
     }
     
     @IBAction func costButton(_ sender: UIButton) {
-        highlight(button: costButton, label: costLabel, inputFlag: 1)
+        highlight(button: costButton, label: costLabel, source: .cost)
     }
     @IBAction func memberButton(_ sender: UIButton) {
-        highlight(button: memberButton, label: membercountLabel, inputFlag: 2)
+        highlight(button: memberButton, label: membercountLabel, source: .member)
     }
     @IBAction func afixButton(_ sender: UIButton) {
-        highlight(button: afixButton, label: AfixLabel, inputFlag: 3)
+        highlight(button: afixButton, label: AfixLabel, source: .personA)
     }
     @IBAction func bfixButton(_ sender: UIButton) {
-       highlight(button: bfixButton, label: BfixLabel, inputFlag: 4)
+       highlight(button: bfixButton, label: BfixLabel, source: .personB)
     }
     @IBAction func cfixButton(_ sender: UIButton) {
-        highlight(button: cfixButton, label: CfixLabel, inputFlag: 5)
+        highlight(button: cfixButton, label: CfixLabel, source: .personC)
     }
-    
     
     //丸め単位を選択
     @IBAction func roundingSegmentedControl(_ sender: UISegmentedControl) {
@@ -94,21 +92,30 @@ class ViewController: UIViewController {
         }
     }
     
+    enum InputSource {
+        case cost
+        case member
+        case personA
+        case personB
+        case personC
+    }
+    var inputSource: InputSource = .cost
+    
     func buttoninput(number: String){
-        switch data.inputFlag {
-        case 1:
+        switch inputSource {
+        case .cost:
             data.cost += number
             costLabel.text = data.cost
-        case 2:
+        case .member:
             data.member += number
             membercountLabel.text = data.member
-        case 3:
+        case .personA:
             data.acost += number
             AfixLabel.text = data.acost
-        case 4:
+        case .personB:
             data.bcost += number
             BfixLabel.text = data.bcost
-        case 5:
+        case .personC:
             data.ccost += number
             CfixLabel.text = data.ccost
         default: break
@@ -116,28 +123,28 @@ class ViewController: UIViewController {
     }
     
     func zeroinput(number: String){
-        switch data.inputFlag {
-        case 1:
+        switch inputSource {
+        case .cost:
             if data.cost != ""{
                 data.cost += "0"
                 costLabel.text = data.cost
             }
-        case 2:
+        case .member:
             if data.cost != ""{
                 data.member += "0"
                 membercountLabel.text = data.member
             }
-        case 3:
+        case .personA:
             if data.cost != ""{
                 data.acost += "0"
                 AfixLabel.text = data.acost
             }
-        case 4:
+        case .personB:
             if data.cost != ""{
                 data.bcost += "0"
                 BfixLabel.text = data.bcost
             }
-        case 5:
+        case .personC:
             if data.cost != ""{
                 data.ccost += "0"
                 CfixLabel.text = data.ccost
@@ -187,24 +194,24 @@ class ViewController: UIViewController {
     }
     
     @IBAction func backspaceButton(_ sender: UIButton) {
-        switch data.inputFlag {
-        case 1:
+        switch inputSource {
+        case .cost:
             if data.cost != ""{
                 delete(Label: costLabel, data: data.cost)
             }
-        case 2:
+        case .member:
             if data.member != ""{
                 delete(Label: membercountLabel, data: data.member)
             }
-        case 3:
+        case .personA:
             if data.acost != ""{
                 delete(Label: AfixLabel, data: data.acost)
             }
-        case 4:
+        case .personB:
             if data.bcost != ""{
                 delete(Label: BfixLabel, data: data.bcost)
             }
-        case 5:
+        case .personC:
             if data.ccost != ""{
                 delete(Label: CfixLabel, data: data.ccost)
             }
@@ -287,15 +294,15 @@ class ViewController: UIViewController {
             let tag = touch.view!.tag
             switch tag {
             case 1:
-                highlight(button: costButton, label: costLabel, inputFlag: 1)
+                highlight(button: costButton, label: costLabel, source: .cost)
             case 2:
-                highlight(button: memberButton, label: membercountLabel, inputFlag: 2)
+                highlight(button: memberButton, label: membercountLabel, source: .member)
             case 3:
-                highlight(button: afixButton, label: AfixLabel, inputFlag: 3)
+                highlight(button: afixButton, label: AfixLabel, source: .personA)
             case 4:
-                highlight(button: bfixButton, label: BfixLabel, inputFlag: 4)
+                highlight(button: bfixButton, label: BfixLabel, source: .personB)
             case 5:
-                highlight(button: cfixButton, label: CfixLabel, inputFlag: 5)
+                highlight(button: cfixButton, label: CfixLabel, source: .personC)
             default:
                 break
             }

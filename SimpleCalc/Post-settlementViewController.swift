@@ -32,29 +32,28 @@ class Post_settlementViewController: UIViewController,UITextViewDelegate{
         print("back")
     }
     
-    func highlight(button: UIButton, label: UILabel, inputFlag: Int) {
+    func highlight(button: UIButton, label: UILabel, source: InputSource) {
         bouderClear()
         button.layer.borderWidth = 2
         button.layer.borderColor = UIColor.red.cgColor
         label.layer.borderWidth = 2;
         label.layer.borderColor = UIColor.red.cgColor
-        data.inputFlag = inputFlag
+        inputSource = source
     }
     
     @IBAction func memberButton(_ sender: UIButton) {
-        highlight(button: memberButton, label: membercountLabel, inputFlag: 1)
+        highlight(button: memberButton, label: membercountLabel, source: .member)
     }
     @IBAction func acostButton(_ sender: UIButton) {
-        highlight(button: acostButton, label: AcostLabel, inputFlag: 2)
+        highlight(button: acostButton, label: AcostLabel, source: .personA)
     }
     @IBAction func bcostButton(_ sender: UIButton) {
-        highlight(button: bcostButton, label: BcostLabel, inputFlag: 3)
+        highlight(button: bcostButton, label: BcostLabel, source: .personB)
     }
     @IBAction func ccostButton(_ sender: UIButton) {
-        highlight(button: ccostButton, label: CcostLabel, inputFlag: 4)
+        highlight(button: ccostButton, label: CcostLabel, source: .personC)
     }
-    
-    
+
     @IBAction func roundingSegmentedControl(_ sender: UISegmentedControl) {
         switch sender.selectedSegmentIndex {
         case 0:
@@ -69,51 +68,57 @@ class Post_settlementViewController: UIViewController,UITextViewDelegate{
         }
     }
     
+    enum InputSource {
+        case member
+        case personA
+        case personB
+        case personC
+    }
+    var inputSource: InputSource = .member
+    
     func buttoninput(number: String){
-        switch data.inputFlag {
-        case 1:
+        switch inputSource {
+        case .member:
             data.member += number
             membercountLabel.text = data.member
-        case 2:
+        case .personA:
             data.acost += number
             AcostLabel.text = data.acost
-        case 3:
+        case .personB:
             if data.member != "" && data.acost != ""{
             data.bcost += number
             BcostLabel.text = data.bcost
             }
-        case 4:
+        case .personC:
             if data.member != "" && data.acost != "" && data.bcost != ""{
             data.ccost += number
             CcostLabel.text = data.ccost
             }
-        default: break
         }
     }
     
     func zeroinput(number: String){
-        switch data.inputFlag {
-        case 1:
+        switch inputSource {
+        case .member:
             if data.member != "" && data.member != "0"{
                 data.member += number
                 membercountLabel.text = data.member
             }
-        case 2:
+        case .personA:
             if data.acost != "" && data.acost != "0"{
                 data.acost += number
                 AcostLabel.text = data.acost
             }
-        case 3:
+        case .personB:
             if data.bcost != "" && data.bcost != "0"{
                 data.bcost += number
                 BcostLabel.text = data.bcost
             }
-        case 4:
+        case .personC:
             if data.ccost != "" && data.ccost != "0"{
                 data.ccost += number
                 CcostLabel.text = data.ccost
             }
-        default: break
         }
     }
     
@@ -162,16 +167,15 @@ class Post_settlementViewController: UIViewController,UITextViewDelegate{
     //一文字消すボタン
     @IBAction func AllClearButton(_ sender: UIButton) {
 
-        switch data.inputFlag {
-        case 1:
+        switch inputSource {
+        case .member:
             delete(Label: membercountLabel, data: data.member)
-        case 2:
+        case .personA:
             delete(Label: AcostLabel, data: data.acost)
-        case 3:
+        case .personB:
             delete(Label: BcostLabel, data: data.bcost)
-        case 4:
+        case .personC:
             delete(Label: CcostLabel, data: data.ccost)
-        default: break
         }
     }
     
@@ -342,13 +346,13 @@ class Post_settlementViewController: UIViewController,UITextViewDelegate{
             let tag = touch.view!.tag
             switch tag {
             case 1:
-                highlight(button: memberButton, label: membercountLabel, inputFlag: 1)
+                highlight(button: memberButton, label: membercountLabel, source: .member)
             case 2:
-                highlight(button: acostButton, label: AcostLabel, inputFlag: 2)
+                highlight(button: acostButton, label: AcostLabel, source: .personA)
             case 3:
-                highlight(button: bcostButton, label: BcostLabel, inputFlag: 3)
+                highlight(button: bcostButton, label: BcostLabel, source: .personB)
             case 4:
-                highlight(button: ccostButton, label: CcostLabel, inputFlag: 4)
+                highlight(button: ccostButton, label: CcostLabel, source: .personC)
             default:
                 break
             }
