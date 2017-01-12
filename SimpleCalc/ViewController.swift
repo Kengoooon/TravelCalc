@@ -28,6 +28,12 @@ struct CalcData{
     var errorFlag: Int = 0
 }
 
+extension String{
+    mutating func dropLast(){
+        self = String(self.characters.dropLast())
+    }
+}
+
 class ViewController: UIViewController {
     
     @IBOutlet weak var backgroundView: UIView!
@@ -46,6 +52,7 @@ class ViewController: UIViewController {
     var data = CalcData()
     var count: Int = 0
     var endPoint: Int = 0
+    var tmp:String = ""
     
     //結果画面の前に戻るボタン用
     @IBAction func back(segue:UIStoryboardSegue){
@@ -118,7 +125,6 @@ class ViewController: UIViewController {
         case .personC:
             data.ccost += number
             CfixLabel.text = data.ccost
-        default: break
         }
     }
     
@@ -126,30 +132,29 @@ class ViewController: UIViewController {
         switch inputSource {
         case .cost:
             if data.cost != ""{
-                data.cost += "0"
+                data.cost += number
                 costLabel.text = data.cost
             }
         case .member:
             if data.cost != ""{
-                data.member += "0"
+                data.member += number
                 membercountLabel.text = data.member
             }
         case .personA:
             if data.cost != ""{
-                data.acost += "0"
+                data.acost += number
                 AfixLabel.text = data.acost
             }
         case .personB:
             if data.cost != ""{
-                data.bcost += "0"
+                data.bcost += number
                 BfixLabel.text = data.bcost
             }
         case .personC:
             if data.cost != ""{
-                data.ccost += "0"
+                data.ccost += number
                 CfixLabel.text = data.ccost
             }
-        default: break
         }
     }
     
@@ -187,35 +192,33 @@ class ViewController: UIViewController {
         zeroinput(number: "00")
     }
     
-    func delete(Label: UILabel,data: String){
-        count = Int(data.characters.count)
-        endPoint = count - 1
-        Label.text = data.substring(with: data.index(data.startIndex, offsetBy: 0)..<data.index(data.startIndex, offsetBy: endPoint))
-    }
-    
     @IBAction func backspaceButton(_ sender: UIButton) {
         switch inputSource {
         case .cost:
             if data.cost != ""{
-                delete(Label: costLabel, data: data.cost)
+                data.cost.dropLast()
+                costLabel.text = data.cost
             }
         case .member:
             if data.member != ""{
-                delete(Label: membercountLabel, data: data.member)
+                data.member.dropLast()
+                membercountLabel.text = data.member
             }
         case .personA:
             if data.acost != ""{
-                delete(Label: AfixLabel, data: data.acost)
+                data.acost.dropLast()
+                AfixLabel.text = data.acost
             }
         case .personB:
             if data.bcost != ""{
-                delete(Label: BfixLabel, data: data.bcost)
+                data.bcost.dropLast()
+                BfixLabel.text = data.bcost
             }
         case .personC:
             if data.ccost != ""{
-                delete(Label: CfixLabel, data: data.ccost)
+                data.ccost.dropLast()
+                CfixLabel.text = data.ccost
             }
-        default: break
         }
     }
     

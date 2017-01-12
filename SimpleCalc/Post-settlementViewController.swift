@@ -26,6 +26,7 @@ class Post_settlementViewController: UIViewController,UITextViewDelegate{
     var data = CalcData()
     var count: Int = 0
     var endPoint: Int = 0
+    var tmp:String = ""
     
     //結果画面の前のページに戻るボタン用
     @IBAction func back(segue:UIStoryboardSegue){
@@ -161,7 +162,8 @@ class Post_settlementViewController: UIViewController,UITextViewDelegate{
         if data != ""{
         count = Int(data.characters.count)
         endPoint = count - 1
-        Label.text = data.substring(with: data.index(data.startIndex, offsetBy: 0)..<data.index(data.startIndex, offsetBy: endPoint))
+        tmp = data.substring(with: data.index(data.startIndex, offsetBy: 0)..<data.index(data.startIndex, offsetBy: endPoint))
+        Label.text = tmp
         }
     }
     //一文字消すボタン
@@ -169,13 +171,17 @@ class Post_settlementViewController: UIViewController,UITextViewDelegate{
 
         switch inputSource {
         case .member:
-            delete(Label: membercountLabel, data: data.member)
+            data.member.dropLast()
+            membercountLabel.text = data.member
         case .personA:
-            delete(Label: AcostLabel, data: data.acost)
+            data.acost.dropLast()
+            AcostLabel.text = data.acost
         case .personB:
-            delete(Label: BcostLabel, data: data.bcost)
+            data.bcost.dropLast()
+            BcostLabel.text = data.bcost
         case .personC:
-            delete(Label: CcostLabel, data: data.ccost)
+            data.ccost.dropLast()
+            CcostLabel.text = data.ccost
         }
     }
     
