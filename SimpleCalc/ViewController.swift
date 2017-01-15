@@ -70,7 +70,6 @@ class ViewController: UIViewController {
     
     //結果画面の前に戻るボタン用
     @IBAction func back(segue:UIStoryboardSegue){
-        print("back")
     }
     
     func highlight(button: UIButton, label: UILabel, source: InputSource) {

@@ -30,7 +30,6 @@ class Post_settlementViewController: UIViewController,UITextViewDelegate{
     
     //結果画面の前のページに戻るボタン用
     @IBAction func back(segue:UIStoryboardSegue){
-        print("back")
     }
     
     func highlight(button: UIButton, label: UILabel, source: InputSource) {

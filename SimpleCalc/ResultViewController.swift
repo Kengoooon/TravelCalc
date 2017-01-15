@@ -60,32 +60,32 @@ class ResultViewController: UIViewController {
                 if data.acost != "" && data.bcost != "" && data.ccost != "" && data.acount != "" && data.bcount != "" && data.ccount != ""{
                     result = String((Int(data.cost)! - (Int(data.acost)! * Int(data.acount)! + Int(data.bcost)! * Int(data.bcount)!  + Int(data.ccost)! * Int(data.ccount)!)) / (Int(data.member)! - (Int(data.acount)! + Int(data.bcount)! + Int(data.ccount)!)))
                     result = resultCalc(roundingCost: data.roundUnit)
-                    resulttextView.text = "太っ腹部長さん\(data.acount)名は\(data.acost)円\n太っ腹課長さん\(data.bcount)名は\(data.bcost)円\n太っ腹先輩さん\(data.ccount)名は\(data.ccost)円\n一人あたりのお会計は\(result)円です\n太っ腹部長,太っ腹課長,太っ腹先輩ご馳走様です。"
+                    resulttextView.text = "太っ腹部長さん\(data.acount)名は\(data.acost)円\n太っ腹課長さん\(data.bcount)名は\(data.bcost)円\n太っ腹先輩さん\(data.ccount)名は\(data.ccost)円\n一人あたりのお会計は\(result)円です\n部長,課長,先輩ご馳走様です。"
                 }else if (data.acost != "" && data.bcost != "" && data.acount != "" && data.bcount != "" && data.ccost == "" && data.ccount == "") {
-                    result = String(Int(data.cost)! - (Int(data.acost)! * Int(data.acount)! + Int(data.bcost)! * Int(data.bcount)!) / (Int(data.member)! - (Int(data.acount)! + Int(data.bcount)!)))
+                    result = String((Int(data.cost)! - Int(data.acost)! * Int(data.acount)! - Int(data.bcost)! * Int(data.bcount)!) / (Int(data.member)! - Int(data.acount)! - Int(data.bcount)!))
                     result = resultCalc(roundingCost: data.roundUnit)
-                    resulttextView.text = "太っ腹部長さん\(data.acount)名は\(data.acost)円\n太っ腹課長さん\(data.bcount)名は\(data.bcost)円\n一人あたりのお会計は\(result)円です\n太っ腹部長,太っ腹課長ご馳走様です。"
+                    resulttextView.text = "太っ腹部長さん\(data.acount)名は\(data.acost)円\n太っ腹課長さん\(data.bcount)名は\(data.bcost)円\n一人あたりのお会計は\(result)円です\n部長,課長ご馳走様です。"
                 }else if (data.bcost != "" && data.ccost != "" && data.bcount != "" && data.ccount != "" && data.acost == "" && data.acount == "") {
-                    result = String(Int(data.cost)! - (Int(data.bcost)! * Int(data.bcount)! + Int(data.ccost)! * Int(data.ccount)!) / (Int(data.member)! - (Int(data.bcount)! + Int(data.ccount)!)))
+                    result = String((Int(data.cost)! - Int(data.bcost)! * Int(data.bcount)! - Int(data.ccost)! * Int(data.ccount)!) / (Int(data.member)! - Int(data.bcount)! - Int(data.ccount)!))
                     result = resultCalc(roundingCost: data.roundUnit)
-                    resulttextView.text = "太っ腹課長さん\(data.bcount)名は\(data.bcost)円\n太っ腹先輩さん\(data.ccount)名は\(data.ccost)円\n一人あたりのお会計は\(result)円です\n太っ腹課長,太っ腹先輩ご馳走様です。"
-                }else if (data.acost != "" && data.ccost != "" && data.acount != "" && data.ccount != "" && data.bcost == "" && data.bcount != "") {
-                    result = String(Int(data.cost)! - (Int(data.acost)! * Int(data.acount)! + Int(data.ccost)! * Int(data.ccount)!) / (Int(data.member)! - (Int(data.bcount)! + Int(data.ccount)!)))
+                    resulttextView.text = "太っ腹課長さん\(data.bcount)名は\(data.bcost)円\n太っ腹先輩さん\(data.ccount)名は\(data.ccost)円\n一人あたりのお会計は\(result)円です\n課長,先輩ご馳走様です。"
+                }else if (data.acost != "" && data.ccost != "" && data.acount != "" && data.ccount != "" && data.bcost == "" && data.bcount == "") {
+                    result = String((Int(data.cost)! - Int(data.acost)! * Int(data.acount)! - Int(data.ccost)! * Int(data.ccount)!) / (Int(data.member)! - Int(data.acount)! - Int(data.ccount)!))
                     result = resultCalc(roundingCost: data.roundUnit)
-                    resulttextView.text = "太っ腹部長さん\(data.acount)名は\(data.acost)円\n太っ腹先輩さん\(data.ccount)名は\(data.ccost)円\n一人あたりのお会計は\(result)円です\n太っ腹部長,太っ腹先輩ご馳走様です。"
+                    resulttextView.text = "太っ腹部長さん\(data.acount)名は\(data.acost)円\n太っ腹先輩さん\(data.ccount)名は\(data.ccost)円\n一人あたりのお会計は\(result)円です\n部長,先輩ご馳走様です。"
                 }else if data.acost != "" && data.acount != "" && data.bcost == "" && data.ccost == "" && data.bcount == "" && data.ccount == ""{
                     result = String((Int(data.cost)! - Int(data.acost)! * Int(data.acount)!) / (Int(data.member)! - Int(data.acount)!))
                     result = resultCalc(roundingCost: data.roundUnit)
-                    resulttextView.text = "太っ腹部長さん\(data.acount)名は\(data.acost)円\n一人あたりのお会計は\(result)円です\n太っ腹部長ご馳走様です。"
+                    resulttextView.text = "太っ腹部長さん\(data.acount)名は\(data.acost)円\n一人あたりのお会計は\(result)円です\n部長ご馳走様です。"
                 }else if data.bcost != "" && data.bcount != "" && data.acost == "" && data.ccost == "" && data.acount == "" && data.ccount == ""{
                     result = String((Int(data.cost)! - Int(data.bcost)! * Int(data.bcount)!) / (Int(data.member)! - Int(data.bcount)!))
                     result = resultCalc(roundingCost: data.roundUnit)
-                    resulttextView.text = "太っ腹課長さん\(data.acount)名は\(data.acost)円\n一人あたりのお会計は\(result)円です\n太っ腹課長ご馳走様です。"
+                    resulttextView.text = "太っ腹課長さん\(data.bcount)名は\(data.bcost)円\n一人あたりのお会計は\(result)円です\n課長ご馳走様です。"
                     
                 }else if data.ccost != "" && data.ccount != "" && data.acost == "" && data.bcost == "" && data.acount == "" && data.bcount == ""{
-                    result = String((Int(data.cost)! - Int(data.ccost)! * Int(data.ccount)!) / (Int(data.member)! - Int(data.bcount)!))
+                    result = String((Int(data.cost)! - Int(data.ccost)! * Int(data.ccount)!) / (Int(data.member)! - Int(data.ccount)!))
                     result = resultCalc(roundingCost: data.roundUnit)
-                    resulttextView.text = "太っ腹先輩さん\(data.ccount)名は\(data.ccost)円\n一人あたりのお会計は\(result)円です\n太っ腹先輩ご馳走様です。"
+                    resulttextView.text = "太っ腹先輩さん\(data.ccount)名は\(data.ccost)円\n一人あたりのお会計は\(result)円です\n先輩ご馳走様です。"
                     
                 }else if data.acost == "" && data.acount == "" && data.bcost == "" && data.bcount == "" && data.ccost == "" && data.ccount == ""{
                     result = String(Int(data.cost)! / (Int(data.member)!))
