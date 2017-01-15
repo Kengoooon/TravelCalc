@@ -247,8 +247,8 @@
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aVq-rb-HhP">
                                                 <rect key="frame" x="0.0" y="0.0" width="90" height="50.5"/>
                                                 <color key="backgroundColor" red="0.0" green="0.50196081400000003" blue="0.50196081400000003" alpha="1" colorSpace="calibratedRGB"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                                                <state key="normal" title="太っ腹A">
+                                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                <state key="normal" title="太っ腹部長">
                                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 </state>
                                                 <userDefinedRuntimeAttributes>
@@ -267,8 +267,11 @@
                                                 </connections>
                                             </button>
                                             <label opaque="NO" userInteractionEnabled="NO" tag="3" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0rJ-yB-mH2">
-                                                <rect key="frame" x="90" y="0.0" width="250" height="50.5"/>
+                                                <rect key="frame" x="90" y="0.0" width="130" height="50.5"/>
                                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="130" id="lmm-aE-8VT"/>
+                                                </constraints>
                                                 <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
@@ -284,7 +287,37 @@
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
                                             </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="円" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fb3-9i-2JC">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="円" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fb3-9i-2JC">
+                                                <rect key="frame" x="220" y="0.0" width="20" height="50.5"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="20" id="tx6-hJ-506"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" tag="6" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="271-DT-7gZ">
+                                                <rect key="frame" x="240" y="0.0" width="100" height="50.5"/>
+                                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="100" id="c7o-Kq-3UB"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                                        <color key="value" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                                        <real key="value" value="1"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                        <real key="value" value="8"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="人" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tRk-fW-CHv">
                                                 <rect key="frame" x="340" y="0.0" width="23" height="50.5"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
@@ -298,8 +331,8 @@
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yZg-zq-PFV">
                                                 <rect key="frame" x="0.0" y="0.0" width="90" height="50"/>
                                                 <color key="backgroundColor" red="0.0" green="0.50196081400000003" blue="0.50196081400000003" alpha="1" colorSpace="calibratedRGB"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                                                <state key="normal" title="太っ腹B">
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <state key="normal" title="太っ腹課長">
                                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 </state>
                                                 <userDefinedRuntimeAttributes>
@@ -318,7 +351,7 @@
                                                 </connections>
                                             </button>
                                             <label opaque="NO" userInteractionEnabled="NO" tag="4" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZXo-8b-s8K">
-                                                <rect key="frame" x="90" y="0.0" width="250" height="50"/>
+                                                <rect key="frame" x="90" y="0.0" width="130" height="50"/>
                                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                                 <nil key="textColor"/>
@@ -335,7 +368,31 @@
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
                                             </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="円" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BnO-6S-H93">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="円" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BnO-6S-H93">
+                                                <rect key="frame" x="220" y="0.0" width="20" height="50"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" tag="7" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="m6l-Db-Tde">
+                                                <rect key="frame" x="240" y="0.0" width="100" height="50"/>
+                                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                                        <color key="value" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                                        <real key="value" value="1"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                        <real key="value" value="8"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="人" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CsJ-ej-MHE">
                                                 <rect key="frame" x="340" y="0.0" width="23" height="50"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
@@ -349,8 +406,8 @@
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Gq8-dG-PHo">
                                                 <rect key="frame" x="0.0" y="0.0" width="90" height="50"/>
                                                 <color key="backgroundColor" red="0.0" green="0.50196081400000003" blue="0.50196081400000003" alpha="1" colorSpace="calibratedRGB"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                                                <state key="normal" title="太っ腹C">
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <state key="normal" title="太っ腹先輩">
                                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 </state>
                                                 <userDefinedRuntimeAttributes>
@@ -369,7 +426,7 @@
                                                 </connections>
                                             </button>
                                             <label opaque="NO" userInteractionEnabled="NO" tag="5" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="q6s-yj-pbq">
-                                                <rect key="frame" x="90" y="0.0" width="250" height="50"/>
+                                                <rect key="frame" x="90" y="0.0" width="130" height="50"/>
                                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                                 <nil key="textColor"/>
@@ -386,7 +443,31 @@
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
                                             </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="円" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lgs-kE-ucq">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="円" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lgs-kE-ucq">
+                                                <rect key="frame" x="220" y="0.0" width="20" height="50"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" tag="8" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KOQ-YV-gAM">
+                                                <rect key="frame" x="240" y="0.0" width="100" height="50"/>
+                                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                                        <color key="value" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                                        <real key="value" value="1"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                        <real key="value" value="8"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="人" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2gq-n4-9rK">
                                                 <rect key="frame" x="340" y="0.0" width="23" height="50"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
@@ -398,16 +479,19 @@
                                 <constraints>
                                     <constraint firstItem="aVq-rb-HhP" firstAttribute="width" secondItem="NFv-bx-SAQ" secondAttribute="width" id="0HN-lA-t38"/>
                                     <constraint firstItem="aVq-rb-HhP" firstAttribute="height" secondItem="NFv-bx-SAQ" secondAttribute="height" id="2Ha-df-MvN"/>
+                                    <constraint firstItem="BnO-6S-H93" firstAttribute="width" secondItem="fb3-9i-2JC" secondAttribute="width" id="8nB-ZA-xbD"/>
+                                    <constraint firstItem="ZXo-8b-s8K" firstAttribute="width" secondItem="0rJ-yB-mH2" secondAttribute="width" id="AYh-4I-9n1"/>
                                     <constraint firstItem="yZg-zq-PFV" firstAttribute="width" secondItem="NFv-bx-SAQ" secondAttribute="width" id="FhX-qG-c5H"/>
                                     <constraint firstItem="Gq8-dG-PHo" firstAttribute="height" secondItem="NFv-bx-SAQ" secondAttribute="height" id="GRX-Ee-kc1"/>
-                                    <constraint firstItem="q6s-yj-pbq" firstAttribute="width" secondItem="jlj-ya-DJp" secondAttribute="width" id="PSm-CN-T4d"/>
                                     <constraint firstItem="yZg-zq-PFV" firstAttribute="height" secondItem="NFv-bx-SAQ" secondAttribute="height" id="QW0-RC-dm2"/>
                                     <constraint firstItem="Gq8-dG-PHo" firstAttribute="width" secondItem="NFv-bx-SAQ" secondAttribute="width" id="SWh-XS-WIL"/>
                                     <constraint firstItem="fzB-qU-16P" firstAttribute="width" secondItem="NFv-bx-SAQ" secondAttribute="width" id="UNw-iG-Bh4"/>
+                                    <constraint firstItem="KOQ-YV-gAM" firstAttribute="width" secondItem="271-DT-7gZ" secondAttribute="width" id="fIi-r5-DU1"/>
                                     <constraint firstItem="6Rw-kf-3KJ" firstAttribute="width" secondItem="jlj-ya-DJp" secondAttribute="width" id="fLl-bN-CTh"/>
+                                    <constraint firstItem="q6s-yj-pbq" firstAttribute="width" secondItem="0rJ-yB-mH2" secondAttribute="width" id="g5F-ZR-s00"/>
                                     <constraint firstItem="fzB-qU-16P" firstAttribute="height" secondItem="NFv-bx-SAQ" secondAttribute="height" id="i7O-wI-xk0"/>
-                                    <constraint firstItem="0rJ-yB-mH2" firstAttribute="width" secondItem="jlj-ya-DJp" secondAttribute="width" id="nnI-cg-wNO"/>
-                                    <constraint firstItem="ZXo-8b-s8K" firstAttribute="width" secondItem="jlj-ya-DJp" secondAttribute="width" id="oWc-ov-raz"/>
+                                    <constraint firstItem="m6l-Db-Tde" firstAttribute="width" secondItem="271-DT-7gZ" secondAttribute="width" id="kB6-jr-KQi"/>
+                                    <constraint firstItem="lgs-kE-ucq" firstAttribute="width" secondItem="fb3-9i-2JC" secondAttribute="width" id="nGe-TU-EtK"/>
                                 </constraints>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="58Y-k3-smN">
@@ -765,8 +849,11 @@
                     </view>
                     <connections>
                         <outlet property="AfixLabel" destination="0rJ-yB-mH2" id="vdx-5D-7aF"/>
+                        <outlet property="AmembercountLabel" destination="271-DT-7gZ" id="Jfv-dh-hAj"/>
                         <outlet property="BfixLabel" destination="ZXo-8b-s8K" id="273-35-QZN"/>
+                        <outlet property="BmembercountLabel" destination="m6l-Db-Tde" id="7cz-DQ-jlM"/>
                         <outlet property="CfixLabel" destination="q6s-yj-pbq" id="cVr-ZC-xWg"/>
+                        <outlet property="CmembercountLabel" destination="KOQ-YV-gAM" id="3OM-MJ-2VK"/>
                         <outlet property="afixButton" destination="aVq-rb-HhP" id="OV0-v5-Olr"/>
                         <outlet property="backgroundView" destination="8bC-Xf-vdC" id="phX-07-4y1"/>
                         <outlet property="bfixButton" destination="yZg-zq-PFV" id="axl-EX-t9o"/>
@@ -1668,6 +1755,6 @@
         <image name="warikan1.png" width="458" height="287"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="p68-As-076"/>
+        <segue reference="cyY-bw-SZj"/>
     </inferredMetricsTieBreakers>
 </document>

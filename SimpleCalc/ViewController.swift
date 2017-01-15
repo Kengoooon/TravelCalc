@@ -15,6 +15,9 @@ struct CalcData{
     var acost: String = ""
     var bcost: String = ""
     var ccost: String = ""
+    var acount: String = ""
+    var bcount: String = ""
+    var ccount: String = ""
     var indicator: Int = 0
     var paymember: Int = 0
     var percost: Int = 0
@@ -56,6 +59,9 @@ class ViewController: UIViewController {
     @IBOutlet weak var bfixButton: UIButton!
     @IBOutlet weak var cfixButton: UIButton!
     @IBOutlet weak var resultButton: UIButton!
+    @IBOutlet weak var AmembercountLabel: UILabel!
+    @IBOutlet weak var BmembercountLabel: UILabel!
+    @IBOutlet weak var CmembercountLabel: UILabel!
     
     var data = CalcData()
     var count: Int = 0
@@ -113,35 +119,53 @@ class ViewController: UIViewController {
         case personA
         case personB
         case personC
+        case personcountA
+        case personcountB
+        case personcountC
     }
     var inputSource: InputSource = .cost
     
     func buttoninput(number: String){
             switch inputSource {
             case .cost:
-                if data.cost.characters.count < 8{
+                if data.cost.characters.count < 7{
                     data.cost += number
                     costLabel.text = data.cost
                 }
             case .member:
-                if data.member.characters.count < 8{
+                if data.member.characters.count < 7{
                     data.member += number
                     membercountLabel.text = data.member
                 }
             case .personA:
-                if data.acost.characters.count < 8{
+                if data.acost.characters.count < 7{
                     data.acost += number
                     AfixLabel.text = data.acost
                 }
             case .personB:
-                if data.acost.characters.count < 8{
+                if data.acost.characters.count < 7{
                     data.bcost += number
                     BfixLabel.text = data.bcost
                 }
             case .personC:
-                if data.acost.characters.count < 8{
+                if data.acost.characters.count < 7{
                     data.ccost += number
                     CfixLabel.text = data.ccost
+                }
+            case .personcountA:
+                if data.acount.characters.count < 4{
+                    data.acount += number
+                    AmembercountLabel.text = data.acount
+                }
+            case .personcountB:
+                if data.bcount.characters.count < 4{
+                    data.bcount += number
+                    BmembercountLabel.text = data.bcount
+                }
+            case .personcountC:
+                if data.ccount.characters.count < 4{
+                    data.ccount += number
+                    CmembercountLabel.text = data.ccount
                 }
         }
     }
@@ -149,29 +173,44 @@ class ViewController: UIViewController {
     func zeroinput(number: String){
         switch inputSource {
         case .cost:
-            if data.cost != "" && data.cost.characters.count < 8{
+            if data.cost != "" && data.cost.characters.count < 7{
                 data.cost += number
                 costLabel.text = data.cost
             }
         case .member:
-            if data.cost != "" && data.member.characters.count < 8{
+            if data.cost != "" && data.member.characters.count < 7{
                 data.member += number
                 membercountLabel.text = data.member
             }
         case .personA:
-            if data.cost != "" && data.acost.characters.count < 8{
+            if data.cost != "" && data.acost.characters.count < 7{
                 data.acost += number
                 AfixLabel.text = data.acost
             }
         case .personB:
-            if data.cost != "" && data.bcost.characters.count < 8{
+            if data.cost != "" && data.bcost.characters.count < 7{
                 data.bcost += number
                 BfixLabel.text = data.bcost
             }
         case .personC:
-            if data.cost != "" && data.ccost.characters.count < 8{
+            if data.cost != "" && data.ccost.characters.count < 7{
                 data.ccost += number
                 CfixLabel.text = data.ccost
+            }
+        case .personcountA:
+            if data.acount != "" && data.acount.characters.count < 4{
+                data.acount += number
+                AmembercountLabel.text = data.acount
+            }
+        case .personcountB:
+            if data.bcount != "" && data.bcount.characters.count < 4{
+                data.bcount += number
+                BmembercountLabel.text = data.bcount
+            }
+        case .personcountC:
+            if data.ccount != "" && data.ccount.characters.count < 4{
+                data.ccount += number
+                CmembercountLabel.text = data.ccount
             }
         }
     }
@@ -237,6 +276,21 @@ class ViewController: UIViewController {
                 data.ccost.dropLast()
                 CfixLabel.text = data.ccost
             }
+        case .personcountA:
+            if data.acount != ""{
+                data.acount.dropLast()
+                AmembercountLabel.text = data.acount
+            }
+        case .personcountB:
+            if data.bcount != ""{
+                data.bcount.dropLast()
+                BmembercountLabel.text = data.bcount
+            }
+        case .personcountC:
+            if data.ccount != ""{
+                data.ccount.dropLast()
+                CmembercountLabel.text = data.ccount
+            }
         }
     }
     
@@ -265,6 +319,9 @@ class ViewController: UIViewController {
         AfixLabel.layer.borderColor = UIColor.black.cgColor
         BfixLabel.layer.borderColor = UIColor.black.cgColor
         CfixLabel.layer.borderColor = UIColor.black.cgColor
+        AmembercountLabel.layer.borderColor = UIColor.black.cgColor
+        BmembercountLabel.layer.borderColor = UIColor.black.cgColor
+        CmembercountLabel.layer.borderColor = UIColor.black.cgColor
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?){
@@ -291,6 +348,9 @@ class ViewController: UIViewController {
         AfixLabel.isUserInteractionEnabled = true
         BfixLabel.isUserInteractionEnabled = true
         CfixLabel.isUserInteractionEnabled = true
+        AmembercountLabel.isUserInteractionEnabled = true
+        BmembercountLabel.isUserInteractionEnabled = true
+        CmembercountLabel.isUserInteractionEnabled = true
         
         //グラデーションの設定
         let gradientLayer = CAGradientLayer()
@@ -324,6 +384,13 @@ class ViewController: UIViewController {
                 highlight(button: bfixButton, label: BfixLabel, source: .personB)
             case 5:
                 highlight(button: cfixButton, label: CfixLabel, source: .personC)
+            case 6:
+                highlight(button: afixButton, label: AmembercountLabel, source: .personcountA)
+            case 7:
+                highlight(button: bfixButton, label: BmembercountLabel, source: .personcountB)
+            case 8:
+                highlight(button: cfixButton, label: CmembercountLabel, source: .personcountC)
+                
             default:
                 break
             }
