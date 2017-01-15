@@ -58,13 +58,13 @@ class Post_settlementViewController: UIViewController,UITextViewDelegate{
     @IBAction func roundingSegmentedControl(_ sender: UISegmentedControl) {
         switch sender.selectedSegmentIndex {
         case 0:
-            data.roundingCost = 1
+            data.roundUnit = .yen1
         case 1:
-            data.roundingCost = 10
+            data.roundUnit = .yen10
         case 2:
-            data.roundingCost = 100
+            data.roundUnit = .yen100
         case 3:
-            data.roundingCost = 500
+            data.roundUnit = .yen500
         default:break
         }
     }
@@ -80,18 +80,22 @@ class Post_settlementViewController: UIViewController,UITextViewDelegate{
     func buttoninput(number: String){
         switch inputSource {
         case .member:
-            data.member += number
-            membercountLabel.text = data.member
+            if data.member.characters.count < 8{
+                data.member += number
+                membercountLabel.text = data.member
+            }
         case .personA:
-            data.acost += number
-            AcostLabel.text = data.acost
+            if data.acost.characters.count < 8{
+                data.acost += number
+                AcostLabel.text = data.acost
+            }
         case .personB:
-            if data.member != "" && data.acost != ""{
+            if data.member != "" && data.acost != "" && data.bcost.characters.count < 8{
             data.bcost += number
             BcostLabel.text = data.bcost
             }
         case .personC:
-            if data.member != "" && data.acost != "" && data.bcost != ""{
+            if data.member != "" && data.acost != "" && data.bcost != "" && data.ccost.characters.count < 8{
             data.ccost += number
             CcostLabel.text = data.ccost
             }
@@ -101,22 +105,22 @@ class Post_settlementViewController: UIViewController,UITextViewDelegate{
     func zeroinput(number: String){
         switch inputSource {
         case .member:
-            if data.member != "" && data.member != "0"{
+            if data.member != "" && data.member != "0" && data.member.characters.count < 8{
                 data.member += number
                 membercountLabel.text = data.member
             }
         case .personA:
-            if data.acost != "" && data.acost != "0"{
+            if data.acost != "" && data.acost != "0"  && data.acost.characters.count < 8{
                 data.acost += number
                 AcostLabel.text = data.acost
             }
         case .personB:
-            if data.bcost != "" && data.bcost != "0"{
+            if data.bcost != "" && data.bcost != "0"  && data.bcost.characters.count < 8{
                 data.bcost += number
                 BcostLabel.text = data.bcost
             }
         case .personC:
-            if data.ccost != "" && data.ccost != "0"{
+            if data.ccost != "" && data.ccost != "0"  && data.ccost.characters.count < 8{
                 data.ccost += number
                 CcostLabel.text = data.ccost
             }
@@ -189,8 +193,8 @@ class Post_settlementViewController: UIViewController,UITextViewDelegate{
     @IBAction func resultButton(_ sender: UIButton) {
         data.indicator = 1
         
-        //支払者Aの金額を入力している場合に遷移
-        if data.acost != "" {
+        //支払者Aの金額と総人数を入力している場合に遷移
+        if data.acost != "" && data.member != ""{
             //支払者Aにしか入力がない場合
             if data.bcost == "" && data.ccost == "" {
                 //Aの名前をdata.anameに格納
@@ -212,7 +216,7 @@ class Post_settlementViewController: UIViewController,UITextViewDelegate{
                 //立て替えした人数を代入
                 data.paymember = 1
                 //支払者AとBに入力がある場合
-            }else if data.ccost == ""{
+            }else if data.member != "" && data.acost != "" && data.bcost != "" && data.ccost == ""{
                 //AとBの名前をdata.nameに格納
                 if anameLabel.text != ""{
                     data.aname = anameLabel.text!
@@ -244,7 +248,7 @@ class Post_settlementViewController: UIViewController,UITextViewDelegate{
                     data.bpayFlag = 1
                 }
                 //支払者AとBとCに入力がある場合
-            }else{
+            }else if data.member != "" && data.acost != "" && data.bcost != "" && data.ccost != ""{
                 //AとBとCの名前をdata.nameに格納
                 if anameLabel.text != ""{
                     data.aname = anameLabel.text!
@@ -281,10 +285,12 @@ class Post_settlementViewController: UIViewController,UITextViewDelegate{
                 if Int(data.ccost)! < data.percost{
                     data.cpayFlag = 1
                 }
+            }else{
+                data.errorFlag = 1
             }
             //支払者Aに入力がない時の処理
         }else{
-            
+            data.errorFlag = 1
         }
     }
     

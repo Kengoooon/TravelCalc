@@ -24,10 +24,18 @@ struct CalcData{
     var aname: String = ""
     var bname: String = ""
     var cname: String = ""
-    var roundingCost: Int = 1
     var errorFlag: Int = 0
+    var roundUnit: RoundUnit = .yen1
 }
 
+enum RoundUnit {
+    case yen1
+    case yen10
+    case yen100
+    case yen500
+}
+
+//Stringを拡張
 extension String{
     mutating func dropLast(){
         self = String(self.characters.dropLast())
@@ -88,13 +96,13 @@ class ViewController: UIViewController {
     @IBAction func roundingSegmentedControl(_ sender: UISegmentedControl) {
         switch sender.selectedSegmentIndex {
         case 0:
-            data.roundingCost = 1
+            data.roundUnit = .yen1
         case 1:
-            data.roundingCost = 10
+            data.roundUnit = .yen10
         case 2:
-            data.roundingCost = 100
+            data.roundUnit = .yen100
         case 3:
-            data.roundingCost = 500
+            data.roundUnit = .yen500
         default:break
         }
     }
@@ -109,49 +117,59 @@ class ViewController: UIViewController {
     var inputSource: InputSource = .cost
     
     func buttoninput(number: String){
-        switch inputSource {
-        case .cost:
-            data.cost += number
-            costLabel.text = data.cost
-        case .member:
-            data.member += number
-            membercountLabel.text = data.member
-        case .personA:
-            data.acost += number
-            AfixLabel.text = data.acost
-        case .personB:
-            data.bcost += number
-            BfixLabel.text = data.bcost
-        case .personC:
-            data.ccost += number
-            CfixLabel.text = data.ccost
+            switch inputSource {
+            case .cost:
+                if data.cost.characters.count < 8{
+                    data.cost += number
+                    costLabel.text = data.cost
+                }
+            case .member:
+                if data.member.characters.count < 8{
+                    data.member += number
+                    membercountLabel.text = data.member
+                }
+            case .personA:
+                if data.acost.characters.count < 8{
+                    data.acost += number
+                    AfixLabel.text = data.acost
+                }
+            case .personB:
+                if data.acost.characters.count < 8{
+                    data.bcost += number
+                    BfixLabel.text = data.bcost
+                }
+            case .personC:
+                if data.acost.characters.count < 8{
+                    data.ccost += number
+                    CfixLabel.text = data.ccost
+                }
         }
     }
     
     func zeroinput(number: String){
         switch inputSource {
         case .cost:
-            if data.cost != ""{
+            if data.cost != "" && data.cost.characters.count < 8{
                 data.cost += number
                 costLabel.text = data.cost
             }
         case .member:
-            if data.cost != ""{
+            if data.cost != "" && data.member.characters.count < 8{
                 data.member += number
                 membercountLabel.text = data.member
             }
         case .personA:
-            if data.cost != ""{
+            if data.cost != "" && data.acost.characters.count < 8{
                 data.acost += number
                 AfixLabel.text = data.acost
             }
         case .personB:
-            if data.cost != ""{
+            if data.cost != "" && data.bcost.characters.count < 8{
                 data.bcost += number
                 BfixLabel.text = data.bcost
             }
         case .personC:
-            if data.cost != ""{
+            if data.cost != "" && data.ccost.characters.count < 8{
                 data.ccost += number
                 CfixLabel.text = data.ccost
             }

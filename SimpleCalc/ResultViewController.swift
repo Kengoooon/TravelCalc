@@ -21,36 +21,31 @@ class ResultViewController: UIViewController {
     var pay2: String = ""
     var pay3: String = ""
     
-    func resultCalc(roundingCost:Int) -> String{
+    func resultCalc(roundingCost:RoundUnit) -> String{
         
         switch roundingCost {
-        case 1:
+        case .yen1:
             result = String(format:"%g",(ceil((Double(result)! / 1)) * 1))
-        case 10:
+        case .yen10:
             result = String(format:"%g",(ceil((Double(result)! / 10)) * 10))
-        case 100:
+        case .yen100:
             result = String(format:"%g",(ceil((Double(result)! / 100)) * 100))
-        case 500:
+        case .yen500:
             result = String(format:"%g",(ceil((Double(result)! / 500)) * 500))
-        default:
-            break
         }
         return result
     }
     
     func resultConv(res:Int) -> String{
-        
-        switch data.roundingCost {
-        case 1:
+        switch data.roundUnit {
+        case .yen1:
             result = String(format:"%g",(ceil((Double(res) / 1)) * 1))
-        case 10:
+        case .yen10:
             result = String(format:"%g",(ceil((Double(res) / 10)) * 10))
-        case 100:
+        case .yen100:
             result = String(format:"%g",(ceil((Double(res) / 100)) * 100))
-        case 500:
+        case .yen500:
             result = String(format:"%g",(ceil((Double(res) / 500)) * 500))
-        default:
-            break
         }
         return result
     }
@@ -73,13 +68,14 @@ class ResultViewController: UIViewController {
                     resulttextView.text = "Aさんは\(data.acost)円\n一人あたりのお会計は\(result)円です"
                 }else{
                     result = String(Int(data.cost)! / (Int(data.member)!))
-                    result = resultCalc(roundingCost: data.roundingCost)
+                    result = resultCalc(roundingCost: data.roundUnit)
                     resulttextView.text = "一人あたりのお会計は\(result)円です"
                 }
             }else{
                 resulttextView.text = "Error!入力がありませんでした。"
             }
         }
+        
         
         func postResult(round: Double){
         if data.cost != "" || data.member != ""{
@@ -162,37 +158,34 @@ class ResultViewController: UIViewController {
         switch  data.indicator {
         //前精算の場合
         case 0:
-            switch data.roundingCost{
-            //1円単位での精算の場合
-            case 1:
+            switch data.roundUnit{
+            case .yen1:
                 resultOutput()
-            case 10:
+            case .yen10:
                 resultOutput()
-            case 100:
+            case .yen100:
                 resultOutput()
-            case 500:
+            case .yen500:
                 resultOutput()
-            default:break
             }
         
         //事後精算の場合
         case 1:
 
             if data.errorFlag != 1{
-                switch data.roundingCost{
+                switch data.roundUnit{
                 //1円単位での精算の場合
-                case 1:
+                case .yen1:
                     postResult(round: 1)
                 //10円単位での精算の場合
-                case 10:
+                case .yen10:
                     postResult(round: 10)
                 //100円単位での精算の場合
-                case 100:
+                case .yen100:
                     postResult(round: 100)
                 //500円単位での精算の場合
-                case 500:
+                case .yen500:
                     postResult(round: 500)
-                default:break
                 }
             }else{
                 resulttextView.text = "Error！入力がありませんでした。"
