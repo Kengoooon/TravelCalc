@@ -7,7 +7,6 @@
 //
 
 import UIKit
-
 //クラス間で共有する変数を定義
 struct CalcData{
     var cost: String = ""
