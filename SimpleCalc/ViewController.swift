@@ -61,11 +61,23 @@ class ViewController: UIViewController {
     @IBOutlet weak var AmembercountLabel: UILabel!
     @IBOutlet weak var BmembercountLabel: UILabel!
     @IBOutlet weak var CmembercountLabel: UILabel!
+    @IBOutlet weak var multiplicationButton: UIButton!
+    @IBOutlet weak var substractButton: UIButton!
+    @IBOutlet weak var additionButton: UIButton!
     
     var data = CalcData()
     var count: Int = 0
     var endPoint: Int = 0
     var tmp:String = ""
+    var opeFlg:Int = 0
+    //演算子を保持する変数
+    var ope:String = ""
+    //合計を保持する変数
+    var sum:Int64 = 0
+    var result:String = "0"
+    var label:UILabel?
+    var max:Int64 = Int64(Int.max)
+    var min:Int64 = Int64(Int.min)
     
     //結果画面の前に戻るボタン用
     @IBAction func back(segue:UIStoryboardSegue){
@@ -78,6 +90,20 @@ class ViewController: UIViewController {
         label.layer.borderWidth = 2;
         label.layer.borderColor = UIColor.red.cgColor
         inputSource = source
+        opebouderClear()
+        if Calculator().1.text != ""{
+            sum = Int64(Calculator().1.text!)!
+        }else{
+            sum = 0
+        }
+        ope = ""
+        result = ""
+    }
+    func opelight(button: UIButton) {
+        opebouderClear()
+        button.layer.borderWidth = 2
+        button.layer.borderColor = UIColor.red.cgColor
+        opeFlg = 1
     }
     
     @IBAction func costButton(_ sender: UIButton) {
@@ -127,45 +153,94 @@ class ViewController: UIViewController {
             switch inputSource {
             case .cost:
                 if data.cost.characters.count < 7{
-                    data.cost += number
-                    costLabel.text = data.cost
+                    if opeFlg == 0{
+                        data.cost += number
+                        costLabel.text = data.cost
+                    }else{
+                        opeFlg = 0
+                        data.cost = number
+                        costLabel.text = data.cost
+                    }
                 }
             case .member:
                 if data.member.characters.count < 7{
-                    data.member += number
-                    membercountLabel.text = data.member
+                    if opeFlg == 0{
+                        data.member += number
+                        membercountLabel.text = data.member
+                    }else{
+                        opeFlg = 0
+                        data.member = number
+                        membercountLabel.text = data.member
+                    }
                 }
             case .personA:
                 if data.acost.characters.count < 7{
-                    data.acost += number
-                    AfixLabel.text = data.acost
+                    if opeFlg == 0{
+                        data.acost += number
+                        AfixLabel.text = data.acost
+                    }else{
+                        opeFlg = 0
+                        data.acost = number
+                        AfixLabel.text = data.acost
+                    }
                 }
             case .personB:
                 if data.acost.characters.count < 7{
-                    data.bcost += number
-                    BfixLabel.text = data.bcost
+                    if opeFlg == 0{
+                        data.bcost += number
+                        BfixLabel.text = data.bcost
+                    }else{
+                        opeFlg = 0
+                        data.bcost = number
+                        BfixLabel.text = data.bcost
+                    }
                 }
             case .personC:
                 if data.acost.characters.count < 7{
-                    data.ccost += number
-                    CfixLabel.text = data.ccost
+                    if opeFlg == 0{
+                        data.ccost += number
+                        CfixLabel.text = data.ccost
+                    }else{
+                        opeFlg = 0
+                        data.ccost = number
+                        CfixLabel.text = data.ccost
+                    }
                 }
             case .personcountA:
                 if data.acount.characters.count < 4{
-                    data.acount += number
-                    AmembercountLabel.text = data.acount
+                     if opeFlg == 0{
+                        data.acount += number
+                        AmembercountLabel.text = data.acount
+                     }else{
+                        opeFlg = 0
+                        data.acount = number
+                        AmembercountLabel.text = data.acount
+                    }
                 }
             case .personcountB:
                 if data.bcount.characters.count < 4{
-                    data.bcount += number
-                    BmembercountLabel.text = data.bcount
+                    if opeFlg == 0{
+                        data.bcount += number
+                        BmembercountLabel.text = data.bcount
+                    }else{
+                        opeFlg = 0
+                        data.bcount = number
+                        BmembercountLabel.text = data.bcount
+                    }
                 }
             case .personcountC:
                 if data.ccount.characters.count < 4{
-                    data.ccount += number
-                    CmembercountLabel.text = data.ccount
+                    if opeFlg == 0{
+                        data.ccount += number
+                        CmembercountLabel.text = data.ccount
+                    }else{
+                        opeFlg = 0
+                        data.ccount = number
+                        CmembercountLabel.text = data.ccount
+                    }
                 }
         }
+        opeFlg = 0
     }
     
     func zeroinput(number: String){
@@ -174,24 +249,24 @@ class ViewController: UIViewController {
             if data.cost != "" && data.cost.characters.count < 7{
                 data.cost += number
                 costLabel.text = data.cost
-            }
+                }
         case .member:
-            if data.cost != "" && data.member.characters.count < 7{
+            if data.member != "" && data.member.characters.count < 7{
                 data.member += number
                 membercountLabel.text = data.member
             }
         case .personA:
-            if data.cost != "" && data.acost.characters.count < 7{
+            if data.acost != "" && data.acost.characters.count < 7{
                 data.acost += number
                 AfixLabel.text = data.acost
             }
         case .personB:
-            if data.cost != "" && data.bcost.characters.count < 7{
+            if data.bcost != "" && data.bcost.characters.count < 7{
                 data.bcost += number
                 BfixLabel.text = data.bcost
             }
         case .personC:
-            if data.cost != "" && data.ccost.characters.count < 7{
+            if data.ccost != "" && data.ccost.characters.count < 7{
                 data.ccost += number
                 CfixLabel.text = data.ccost
             }
@@ -246,6 +321,104 @@ class ViewController: UIViewController {
     @IBAction func zerozeroBtn(_ sender: UIButton) {
         zeroinput(number: "00")
     }
+    
+    func Calculator() -> (String ,UILabel){
+        switch inputSource {
+        case .cost:
+            result = data.cost
+            label = costLabel
+        case .member:
+            result = data.member
+            label = membercountLabel
+        case .personA:
+            result = data.acost
+            label = AfixLabel
+        case .personB:
+            result = data.bcost
+            label = BfixLabel
+        case .personC:
+            result = data.ccost
+            label = CfixLabel
+        case .personcountA:
+            result = data.acount
+            label = AmembercountLabel
+        case .personcountB:
+            result = data.bcount
+            label = BmembercountLabel
+        case .personcountC:
+            result = data.ccount
+            label = CmembercountLabel
+        }
+        return (result, label!)
+    }
+
+    //計算関数
+    func calc(number: String) -> String{
+        if Calculator().1.text != ""{
+            switch ope {
+            case "+":
+                sum += Int64(number)!
+            case "-":
+                sum -= Int64(number)!
+            case "×":
+                sum *= Int64(number)!
+            case "":
+                sum = Int64(number)!
+            default: break
+            }
+        }
+        
+        if sum > max{
+            sum = max
+        }else if sum < min{
+            sum = min
+        }
+        return String(sum)
+    }
+
+    //足し算
+    @IBAction func additionButton(_ sender: UIButton) {
+        if opeFlg == 0{
+            Calculator().1.text = calc(number: (Calculator().0))
+            ope = "+"
+            opelight(button: additionButton)
+        }else if opeFlg == 1{
+            ope = "+"
+            opelight(button: additionButton)
+        }
+    }
+    //引き算
+    @IBAction func substractButton(_ sender: UIButton) {
+        if opeFlg == 0{
+            Calculator().1.text = String(calc(number: (Calculator().0)))
+            ope = "-"
+            opelight(button: substractButton)
+        }else if opeFlg == 1{
+            ope = "-"
+            opelight(button: substractButton)
+        }
+    }
+    //掛け算
+    @IBAction func multiplicationButton(_ sender: UIButton) {
+        if opeFlg == 0{
+            Calculator().1.text = String(calc(number: (Calculator().0)))
+            ope = "×"
+            opelight(button: multiplicationButton)
+        }else if opeFlg == 1{
+            ope = "×"
+            opelight(button: multiplicationButton)
+        }
+    }
+    @IBAction func equalButton(_ sender: UIButton) {
+        if ope != ""{
+        Calculator().1.text = calc(number: (Calculator().0))
+        opeFlg = 1
+        opebouderClear()
+        }
+    }
+    
+
+    
     
     @IBAction func backspaceButton(_ sender: UIButton) {
         switch inputSource {
@@ -322,6 +495,15 @@ class ViewController: UIViewController {
         CmembercountLabel.layer.borderColor = UIColor.black.cgColor
     }
     
+    func opebouderClear() -> (){
+        additionButton.layer.borderWidth = 0.5
+        additionButton.layer.borderColor = UIColor.black.cgColor
+        substractButton.layer.borderWidth = 0.5
+        substractButton.layer.borderColor = UIColor.black.cgColor
+        multiplicationButton.layer.borderWidth = 0.5
+        multiplicationButton.layer.borderColor = UIColor.black.cgColor
+    }
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?){
         super.prepare(for: segue, sender: sender)
         
@@ -388,7 +570,6 @@ class ViewController: UIViewController {
                 highlight(button: bfixButton, label: BmembercountLabel, source: .personcountB)
             case 8:
                 highlight(button: cfixButton, label: CmembercountLabel, source: .personcountC)
-                
             default:
                 break
             }
