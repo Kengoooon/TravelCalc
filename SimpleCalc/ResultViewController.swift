@@ -21,8 +21,8 @@ class ResultViewController: UIViewController {
     var pay2: String = ""
     var pay3: String = ""
     
+    //丸め単位に応じた結果計算関数
     func resultCalc(roundingCost:RoundUnit) -> String{
-        
         switch roundingCost {
         case .yen1:
             result = String(format:"%g",(ceil((Double(result)! / 1)) * 1))
@@ -36,25 +36,13 @@ class ResultViewController: UIViewController {
         return result
     }
     
-    func resultConv(res:Int) -> String{
-        switch data.roundUnit {
-        case .yen1:
-            result = String(format:"%g",(ceil((Double(res) / 1)) * 1))
-        case .yen10:
-            result = String(format:"%g",(ceil((Double(res) / 10)) * 10))
-        case .yen100:
-            result = String(format:"%g",(ceil((Double(res) / 100)) * 100))
-        case .yen500:
-            result = String(format:"%g",(ceil((Double(res) / 500)) * 500))
-        }
-        return result
-    }
     
     @IBOutlet weak var resulttextView: UITextView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        //事前精算時の処理関数
         func resultOutput(){
             if data.cost != "" && data.member != ""{
                 if data.acost != "" && data.bcost != "" && data.ccost != "" && data.acount != "" && data.bcount != "" && data.ccount != "" && Int(data.member)! > (Int(data.acount)! + Int(data.bcount)! + Int(data.ccount)!) && Int(data.cost)! >= (Int(data.acost)! + Int(data.bcost)! + Int(data.ccost)!){
@@ -177,7 +165,7 @@ class ResultViewController: UIViewController {
         }
         
         switch  data.indicator {
-        //前精算の場合
+        //事前精算の場合
         case 0:
             switch data.roundUnit{
             case .yen1:
@@ -232,8 +220,23 @@ class ResultViewController: UIViewController {
         //headerviewにグラデーションレイヤーを挿入
         backgroundView.layer.insertSublayer(gradientLayer,at:0)
 
-            
     }
+    
+    //丸め単位に応じた結果計算関数
+    func resultConv(res:Int) -> String{
+        switch data.roundUnit {
+        case .yen1:
+            result = String(format:"%g",(ceil((Double(res) / 1)) * 1))
+        case .yen10:
+            result = String(format:"%g",(ceil((Double(res) / 10)) * 10))
+        case .yen100:
+            result = String(format:"%g",(ceil((Double(res) / 100)) * 100))
+        case .yen500:
+            result = String(format:"%g",(ceil((Double(res) / 500)) * 500))
+        }
+        return result
+    }
+
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

@@ -30,6 +30,7 @@ struct CalcData{
     var roundUnit: RoundUnit = .yen1
 }
 
+//丸め数を定義
 enum RoundUnit {
     case yen1
     case yen10
@@ -37,7 +38,7 @@ enum RoundUnit {
     case yen500
 }
 
-//Stringを拡張
+//Stringを拡張(末尾を１文字削除)
 extension String{
     mutating func dropLast(){
         self = String(self.characters.dropLast())
@@ -46,6 +47,7 @@ extension String{
 
 class ViewController: UIViewController {
     
+    //ラベル・ボタンの参照
     @IBOutlet weak var backgroundView: UIView!
     @IBOutlet weak var costLabel: UILabel!
     @IBOutlet weak var membercountLabel: UILabel!
@@ -66,10 +68,8 @@ class ViewController: UIViewController {
     @IBOutlet weak var additionButton: UIButton!
     
     var data = CalcData()
-    var count: Int = 0
-    var endPoint: Int = 0
-    var tmp:String = ""
-    var opeFlg:Int = 0
+    //演算子の入力フラグ
+    var opeFlag:Int = 0
     //演算子を保持する変数
     var ope:String = ""
     //合計を保持する変数
@@ -83,8 +83,10 @@ class ViewController: UIViewController {
     @IBAction func back(segue:UIStoryboardSegue){
     }
     
+    //選択したラベル・ボタンの枠線に色をつける関数
     func highlight(button: UIButton, label: UILabel, source: InputSource) {
         bouderClear()
+        synchronize()
         button.layer.borderWidth = 2
         button.layer.borderColor = UIColor.red.cgColor
         label.layer.borderWidth = 2;
@@ -99,13 +101,15 @@ class ViewController: UIViewController {
         ope = ""
         result = ""
     }
+    //選択した演算子の枠線に色をつける関数
     func opelight(button: UIButton) {
         opebouderClear()
         button.layer.borderWidth = 2
         button.layer.borderColor = UIColor.red.cgColor
-        opeFlg = 1
+        opeFlag = 1
     }
     
+    //ボタンの処理
     @IBAction func costButton(_ sender: UIButton) {
         highlight(button: costButton, label: costLabel, source: .cost)
     }
@@ -137,6 +141,7 @@ class ViewController: UIViewController {
         }
     }
     
+    //入力項目を定義
     enum InputSource {
         case cost
         case member
@@ -149,100 +154,102 @@ class ViewController: UIViewController {
     }
     var inputSource: InputSource = .cost
     
+    //数字ボタンの入力関数
     func buttoninput(number: String){
             switch inputSource {
             case .cost:
                 if data.cost.characters.count < 7{
-                    if opeFlg == 0{
+                    if opeFlag == 0{
                         data.cost += number
                         costLabel.text = data.cost
                     }else{
-                        opeFlg = 0
+                        opeFlag = 0
                         data.cost = number
                         costLabel.text = data.cost
                     }
                 }
             case .member:
                 if data.member.characters.count < 7{
-                    if opeFlg == 0{
+                    if opeFlag == 0{
                         data.member += number
                         membercountLabel.text = data.member
                     }else{
-                        opeFlg = 0
+                        opeFlag = 0
                         data.member = number
                         membercountLabel.text = data.member
                     }
                 }
             case .personA:
                 if data.acost.characters.count < 7{
-                    if opeFlg == 0{
+                    if opeFlag == 0{
                         data.acost += number
                         AfixLabel.text = data.acost
                     }else{
-                        opeFlg = 0
+                        opeFlag = 0
                         data.acost = number
                         AfixLabel.text = data.acost
                     }
                 }
             case .personB:
                 if data.acost.characters.count < 7{
-                    if opeFlg == 0{
+                    if opeFlag == 0{
                         data.bcost += number
                         BfixLabel.text = data.bcost
                     }else{
-                        opeFlg = 0
+                        opeFlag = 0
                         data.bcost = number
                         BfixLabel.text = data.bcost
                     }
                 }
             case .personC:
                 if data.acost.characters.count < 7{
-                    if opeFlg == 0{
+                    if opeFlag == 0{
                         data.ccost += number
                         CfixLabel.text = data.ccost
                     }else{
-                        opeFlg = 0
+                        opeFlag = 0
                         data.ccost = number
                         CfixLabel.text = data.ccost
                     }
                 }
             case .personcountA:
                 if data.acount.characters.count < 4{
-                     if opeFlg == 0{
+                     if opeFlag == 0{
                         data.acount += number
                         AmembercountLabel.text = data.acount
                      }else{
-                        opeFlg = 0
+                        opeFlag = 0
                         data.acount = number
                         AmembercountLabel.text = data.acount
                     }
                 }
             case .personcountB:
                 if data.bcount.characters.count < 4{
-                    if opeFlg == 0{
+                    if opeFlag == 0{
                         data.bcount += number
                         BmembercountLabel.text = data.bcount
                     }else{
-                        opeFlg = 0
+                        opeFlag = 0
                         data.bcount = number
                         BmembercountLabel.text = data.bcount
                     }
                 }
             case .personcountC:
                 if data.ccount.characters.count < 4{
-                    if opeFlg == 0{
+                    if opeFlag == 0{
                         data.ccount += number
                         CmembercountLabel.text = data.ccount
                     }else{
-                        opeFlg = 0
+                        opeFlag = 0
                         data.ccount = number
                         CmembercountLabel.text = data.ccount
                     }
                 }
         }
-        opeFlg = 0
+        opeFlag = 0
     }
     
+    //"0","00"ボタンの入力関数
     func zeroinput(number: String){
         switch inputSource {
         case .cost:
@@ -288,6 +295,7 @@ class ViewController: UIViewController {
         }
     }
     
+    //数字ボタンの入力
     @IBAction func oneBtn(_ sender: UIButton) {
         buttoninput(number: "1")
     }
@@ -322,6 +330,7 @@ class ViewController: UIViewController {
         zeroinput(number: "00")
     }
     
+    //計算関数１
     func Calculator() -> (String ,UILabel){
         switch inputSource {
         case .cost:
@@ -352,7 +361,7 @@ class ViewController: UIViewController {
         return (result, label!)
     }
 
-    //計算関数
+    //計算関数２
     func calc(number: String) -> String{
         if Calculator().1.text != ""{
             switch ope {
@@ -378,33 +387,33 @@ class ViewController: UIViewController {
 
     //足し算
     @IBAction func additionButton(_ sender: UIButton) {
-        if opeFlg == 0{
+        if opeFlag == 0{
             Calculator().1.text = calc(number: (Calculator().0))
             ope = "+"
             opelight(button: additionButton)
-        }else if opeFlg == 1{
+        }else if opeFlag == 1{
             ope = "+"
             opelight(button: additionButton)
         }
     }
     //引き算
     @IBAction func substractButton(_ sender: UIButton) {
-        if opeFlg == 0{
+        if opeFlag == 0{
             Calculator().1.text = String(calc(number: (Calculator().0)))
             ope = "-"
             opelight(button: substractButton)
-        }else if opeFlg == 1{
+        }else if opeFlag == 1{
             ope = "-"
             opelight(button: substractButton)
         }
     }
     //掛け算
     @IBAction func multiplicationButton(_ sender: UIButton) {
-        if opeFlg == 0{
+        if opeFlag == 0{
             Calculator().1.text = String(calc(number: (Calculator().0)))
             ope = "×"
             opelight(button: multiplicationButton)
-        }else if opeFlg == 1{
+        }else if opeFlag == 1{
             ope = "×"
             opelight(button: multiplicationButton)
         }
@@ -412,14 +421,12 @@ class ViewController: UIViewController {
     @IBAction func equalButton(_ sender: UIButton) {
         if ope != ""{
         Calculator().1.text = calc(number: (Calculator().0))
-        opeFlg = 1
+        opeFlag = 1
         opebouderClear()
         }
     }
     
-
-    
-    
+    //一文字消すボタン
     @IBAction func backspaceButton(_ sender: UIButton) {
         switch inputSource {
         case .cost:
@@ -467,8 +474,10 @@ class ViewController: UIViewController {
     
     @IBAction func resultButton(_ sender: UIButton) {
         data.indicator = 0
+        
     }
 
+    //枠線の色を元に戻す関数
     func bouderClear() -> (){
         costButton.layer.borderWidth = 1;
         memberButton.layer.borderWidth = 1;
@@ -495,6 +504,19 @@ class ViewController: UIViewController {
         CmembercountLabel.layer.borderColor = UIColor.black.cgColor
     }
     
+    //ラベルとstruckの値を同期する関数
+    func synchronize() -> (){
+        data.cost = costLabel.text!
+        data.member = membercountLabel.text!
+        data.acost = AfixLabel.text!
+        data.bcost = BfixLabel.text!
+        data.ccost = CfixLabel.text!
+        data.acount = AmembercountLabel.text!
+        data.bcount = BmembercountLabel.text!
+        data.ccount = CmembercountLabel.text!
+    }
+    
+    //演算子の枠線の色を元に戻す関数
     func opebouderClear() -> (){
         additionButton.layer.borderWidth = 0.5
         additionButton.layer.borderColor = UIColor.black.cgColor
@@ -549,6 +571,7 @@ class ViewController: UIViewController {
         backgroundView.layer.insertSublayer(gradientLayer,at:0)
     }
     
+    //ラベルタッチ時の動作
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
         super.touchesEnded(touches, with: event)
         for touch: UITouch in touches {
