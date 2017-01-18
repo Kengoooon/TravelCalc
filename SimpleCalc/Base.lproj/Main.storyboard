@@ -1730,7 +1730,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9sh-4J-gBA" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="305" y="763"/>
+            <point key="canvasLocation" x="300" y="761"/>
         </scene>
         <!--Result View Controller-->
         <scene sceneID="4bw-b2-Bqe">
@@ -1837,6 +1837,6 @@
         <image name="warikan1.png" width="458" height="287"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="cyY-bw-SZj"/>
+        <segue reference="p68-As-076"/>
     </inferredMetricsTieBreakers>
 </document>
