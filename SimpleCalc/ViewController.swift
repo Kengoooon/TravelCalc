@@ -426,48 +426,56 @@ class ViewController: UIViewController {
         }
     }
     
-    //一文字消すボタン
+    //ACボタン
     @IBAction func backspaceButton(_ sender: UIButton) {
         switch inputSource {
         case .cost:
             if data.cost != ""{
-                data.cost.dropLast()
+                data.cost = ""
                 costLabel.text = data.cost
+                clear()
             }
         case .member:
             if data.member != ""{
-                data.member.dropLast()
+                data.member = ""
                 membercountLabel.text = data.member
+                clear()
             }
         case .personA:
             if data.acost != ""{
-                data.acost.dropLast()
+                data.acost = ""
                 AfixLabel.text = data.acost
+                clear()
             }
         case .personB:
             if data.bcost != ""{
-                data.bcost.dropLast()
+                data.bcost = ""
                 BfixLabel.text = data.bcost
+                clear()
             }
         case .personC:
             if data.ccost != ""{
-                data.ccost.dropLast()
+                data.ccost = ""
                 CfixLabel.text = data.ccost
+                clear()
             }
         case .personcountA:
             if data.acount != ""{
-                data.acount.dropLast()
+                data.acount = ""
                 AmembercountLabel.text = data.acount
+                clear()
             }
         case .personcountB:
             if data.bcount != ""{
-                data.bcount.dropLast()
+                data.bcount = ""
                 BmembercountLabel.text = data.bcount
+                clear()
             }
         case .personcountC:
             if data.ccount != ""{
-                data.ccount.dropLast()
+                data.ccount = ""
                 CmembercountLabel.text = data.ccount
+                clear()
             }
         }
     }
@@ -477,6 +485,11 @@ class ViewController: UIViewController {
         data.indicator = 0
     }
 
+    //TOP画面に戻るボタン
+    @IBAction func back(_ sender: UIButton) {
+        self.dismiss(animated: true, completion: nil)
+    }
+    
     //枠線の色を元に戻す関数
     func bouderClear() -> (){
         costButton.layer.borderWidth = 1;
@@ -526,6 +539,13 @@ class ViewController: UIViewController {
         multiplicationButton.layer.borderColor = UIColor.black.cgColor
     }
     
+    func clear() -> (){
+        opebouderClear()
+        ope = ""
+        opeFlag = 0
+        sum = 0
+        result = ""
+    }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?){
         super.prepare(for: segue, sender: sender)

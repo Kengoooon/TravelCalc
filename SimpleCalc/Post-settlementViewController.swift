@@ -22,23 +22,54 @@ class Post_settlementViewController: UIViewController,UITextViewDelegate{
     @IBOutlet weak var acostButton: UIButton!
     @IBOutlet weak var bcostButton: UIButton!
     @IBOutlet weak var ccostButton: UIButton!
-    
+    @IBOutlet weak var multiplicationButton: UIButton!
+    @IBOutlet weak var substractButton: UIButton!
+    @IBOutlet weak var additionButton: UIButton!
+
     var data = CalcData()
-    var count: Int = 0
-    var endPoint: Int = 0
     var tmp:String = ""
+    
+    //演算子の入力フラグ
+    var opeFlag:Int = 0
+    //演算子を保持する変数
+    var ope:String = ""
+    //合計を保持する変数
+    var sum:Int64 = 0
+    var result:String = "0"
+    var label:UILabel?
+    //Intの最大値，最小値を保持する関数
+    var max:Int64 = Int64(Int.max)
+    var min:Int64 = Int64(Int.min)
     
     //結果画面の前のページに戻るボタン用
     @IBAction func back(segue:UIStoryboardSegue){
     }
     
+    //ラベルをタッチした際に枠線に色をつける関数
     func highlight(button: UIButton, label: UILabel, source: InputSource) {
         bouderClear()
+        synchronize()
         button.layer.borderWidth = 2
         button.layer.borderColor = UIColor.red.cgColor
         label.layer.borderWidth = 2;
         label.layer.borderColor = UIColor.red.cgColor
         inputSource = source
+        opebouderClear()
+        if Calculator().1.text != ""{
+            sum = Int64(Calculator().1.text!)!
+        }else{
+            sum = 0
+        }
+        ope = ""
+        result = ""
+    }
+    
+    //選択した演算子の枠線に色をつける関数
+    func opelight(button: UIButton) {
+        opebouderClear()
+        button.layer.borderWidth = 2
+        button.layer.borderColor = UIColor.red.cgColor
+        opeFlag = 1
     }
     
     @IBAction func memberButton(_ sender: UIButton) {
@@ -80,25 +111,50 @@ class Post_settlementViewController: UIViewController,UITextViewDelegate{
         switch inputSource {
         case .member:
             if data.member.characters.count < 8{
-                data.member += number
-                membercountLabel.text = data.member
+                if opeFlag == 0{
+                    data.member += number
+                    membercountLabel.text = data.member
+                }else{
+                    opeFlag = 0
+                    data.member = number
+                    membercountLabel.text = data.member
+                }
             }
         case .personA:
             if data.acost.characters.count < 8{
-                data.acost += number
-                AcostLabel.text = data.acost
+                if opeFlag == 0{
+                    data.acost += number
+                    AcostLabel.text = data.acost
+                }else{
+                    opeFlag = 0
+                    data.acost = number
+                    AcostLabel.text = data.acost
+                }
             }
         case .personB:
             if data.member != "" && data.acost != "" && data.bcost.characters.count < 8{
-            data.bcost += number
-            BcostLabel.text = data.bcost
+                if opeFlag == 0{
+                    data.bcost += number
+                    BcostLabel.text = data.bcost
+                }else{
+                    opeFlag = 0
+                    data.bcost = number
+                    BcostLabel.text = data.bcost
+                }
             }
         case .personC:
             if data.member != "" && data.acost != "" && data.bcost != "" && data.ccost.characters.count < 8{
-            data.ccost += number
-            CcostLabel.text = data.ccost
+                if opeFlag == 0{
+                    data.ccost += number
+                    CcostLabel.text = data.ccost
+                }else{
+                    opeFlag = 0
+                    data.ccost = number
+                    CcostLabel.text = data.ccost
+                }
             }
         }
+        opeFlag = 0
     }
     
     func zeroinput(number: String){
@@ -160,31 +216,117 @@ class Post_settlementViewController: UIViewController,UITextViewDelegate{
         zeroinput(number: "00")
     }
     
+    //計算関数１
+    func Calculator() -> (String ,UILabel){
+        switch inputSource {
+        case .member:
+            result = data.member
+            label = membercountLabel
+        case .personA:
+            result = data.acost
+            label = AcostLabel
+        case .personB:
+            result = data.bcost
+            label = BcostLabel
+        case .personC:
+            result = data.ccost
+            label = CcostLabel
+        }
+        return (result, label!)
+    }
     
-    func delete(Label: UILabel,data: String){
-        if data != ""{
-        count = Int(data.characters.count)
-        endPoint = count - 1
-        tmp = data.substring(with: data.index(data.startIndex, offsetBy: 0)..<data.index(data.startIndex, offsetBy: endPoint))
-        Label.text = tmp
+    //計算関数２
+    func calc(number: String) -> String{
+        if Calculator().1.text != ""{
+            switch ope {
+            case "+":
+                sum += Int64(number)!
+            case "-":
+                sum -= Int64(number)!
+            case "×":
+                sum *= Int64(number)!
+            case "":
+                sum = Int64(number)!
+            default: break
+            }
+        }
+        
+        if sum > max{
+            sum = max
+        }else if sum < min{
+            sum = min
+        }
+        return String(sum)
+    }
+    
+    //足し算
+    @IBAction func additionButton(_ sender: UIButton) {
+        if opeFlag == 0{
+            Calculator().1.text = calc(number: (Calculator().0))
+            ope = "+"
+            opelight(button: additionButton)
+        }else if opeFlag == 1{
+            ope = "+"
+            opelight(button: additionButton)
         }
     }
+
+     //引き算
+    @IBAction func substractButton(_ sender: UIButton) {
+        if opeFlag == 0{
+            Calculator().1.text = String(calc(number: (Calculator().0)))
+            ope = "-"
+            opelight(button: substractButton)
+        }else if opeFlag == 1{
+            ope = "-"
+            opelight(button: substractButton)
+        }
+    }
+   
+ 
+    //掛け算
+    @IBAction func multiplicationButton(_ sender: UIButton) {
+        if opeFlag == 0{
+            Calculator().1.text = String(calc(number: (Calculator().0)))
+            ope = "×"
+            opelight(button: multiplicationButton)
+        }else if opeFlag == 1{
+            ope = "×"
+            opelight(button: multiplicationButton)
+        }
+
+    }
+    
+    @IBAction func equalButton(_ sender: UIButton) {
+        if ope != ""{
+            Calculator().1.text = calc(number: (Calculator().0))
+            opeFlag = 1
+            opebouderClear()
+        }
+    }
+
+    
     //一文字消すボタン
     @IBAction func AllClearButton(_ sender: UIButton) {
 
         switch inputSource {
         case .member:
-            data.member.dropLast()
+            data.member = ""
             membercountLabel.text = data.member
+            clear()
+            result = ""
         case .personA:
-            data.acost.dropLast()
+            data.acost = ""
             AcostLabel.text = data.acost
+            clear()
         case .personB:
-            data.bcost.dropLast()
+            data.bcost = ""
             BcostLabel.text = data.bcost
+            clear()
         case .personC:
-            data.ccost.dropLast()
+            data.ccost = ""
             CcostLabel.text = data.ccost
+            clear()
         }
     }
     
@@ -294,6 +436,11 @@ class Post_settlementViewController: UIViewController,UITextViewDelegate{
         performSegue(withIdentifier: "PushResult", sender: resultButton)
     }
     
+    @IBAction func back(_ sender: UIButton) {
+        self.dismiss(animated: true, completion: nil)
+    }
+    
+    
     //罫線をデフォルト値に戻す関数
     func bouderClear() -> (){
         memberButton.layer.borderWidth = 1;
@@ -313,6 +460,34 @@ class Post_settlementViewController: UIViewController,UITextViewDelegate{
         BcostLabel.layer.borderColor = UIColor.black.cgColor
         CcostLabel.layer.borderColor = UIColor.black.cgColor
     }
+    
+    //ラベルとstruckの値を同期する関数
+    func synchronize() -> (){
+        data.member = membercountLabel.text!
+        data.acost = AcostLabel.text!
+        data.bcost = BcostLabel.text!
+        data.ccost = CcostLabel.text!
+
+    }
+    
+    //演算子の枠線の色を元に戻す関数
+    func opebouderClear() -> (){
+        additionButton.layer.borderWidth = 0.5
+        additionButton.layer.borderColor = UIColor.black.cgColor
+        substractButton.layer.borderWidth = 0.5
+        substractButton.layer.borderColor = UIColor.black.cgColor
+        multiplicationButton.layer.borderWidth = 0.5
+        multiplicationButton.layer.borderColor = UIColor.black.cgColor
+    }
+    
+    func clear() -> (){
+        opebouderClear()
+        ope = ""
+        opeFlag = 0
+        sum = 0
+        result = ""
+    }
+
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?){
         super.prepare(for: segue, sender: sender)
