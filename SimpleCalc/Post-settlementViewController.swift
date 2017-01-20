@@ -291,6 +291,7 @@ class Post_settlementViewController: UIViewController,UITextViewDelegate{
         }else{
             data.errorFlag = 1
         }
+        performSegue(withIdentifier: "PushResult", sender: resultButton)
     }
     
     //罫線をデフォルト値に戻す関数

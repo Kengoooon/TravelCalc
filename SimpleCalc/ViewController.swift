@@ -473,8 +473,8 @@ class ViewController: UIViewController {
     }
     
     @IBAction func resultButton(_ sender: UIButton) {
+        performSegue(withIdentifier: "PushResult", sender: resultButton)
         data.indicator = 0
-        
     }
 
     //枠線の色を元に戻す関数
@@ -525,6 +525,7 @@ class ViewController: UIViewController {
         multiplicationButton.layer.borderWidth = 0.5
         multiplicationButton.layer.borderColor = UIColor.black.cgColor
     }
+    
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?){
         super.prepare(for: segue, sender: sender)

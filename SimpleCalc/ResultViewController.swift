@@ -221,6 +221,10 @@ class ResultViewController: UIViewController {
         backgroundView.layer.insertSublayer(gradientLayer,at:0)
 
     }
+    @IBAction func topBuck(_ sender: UIButton) {
+        self.presentingViewController?.presentingViewController?.dismiss(animated: true, completion: nil)
+        //self.dismiss(animated: true, completion: nil)
+    }
     
     //丸め単位に応じた結果計算関数
     func resultConv(res:Int) -> String{

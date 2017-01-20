@@ -4,7 +4,6 @@
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
         <capability name="Alignment constraints to the first baseline" minToolsVersion="6.0"/>
         <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
@@ -877,7 +876,6 @@
                                 </userDefinedRuntimeAttributes>
                                 <connections>
                                     <action selector="resultButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="KKw-va-5TC"/>
-                                    <segue destination="mDF-YN-ciC" kind="presentation" id="cyY-bw-SZj"/>
                                 </connections>
                             </button>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="AVa-n1-Jz0">
@@ -945,11 +943,12 @@
                         <outlet property="multiplicationButton" destination="Fze-sJ-WkQ" id="uVf-1j-rGt"/>
                         <outlet property="resultButton" destination="Tor-Ub-vre" id="Qfd-4y-FeO"/>
                         <outlet property="substractButton" destination="wDs-WM-mVs" id="BjE-8V-drB"/>
+                        <segue destination="mDF-YN-ciC" kind="show" identifier="PushResult" id="XA9-aO-KEy"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="325.60000000000002" y="3.1484257871064472"/>
+            <point key="canvasLocation" x="479" y="-22"/>
         </scene>
         <!--Post settlement View Controller-->
         <scene sceneID="PAe-D8-Ahc">
@@ -989,7 +988,6 @@
                                 <connections>
                                     <action selector="resultButton:" destination="r90-dc-BWA" eventType="touchUpInside" id="cII-eI-vlp"/>
                                     <action selector="resultButton:" destination="r90-dc-BWA" eventType="touchDown" id="wVW-sJ-6ao"/>
-                                    <segue destination="mDF-YN-ciC" kind="presentation" id="p68-As-076"/>
                                 </connections>
                             </button>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="hgm-z2-HG4">
@@ -1726,6 +1724,7 @@
                         <outlet property="cnameLabel" destination="vch-ih-hNb" id="ZrI-ab-rVE"/>
                         <outlet property="memberButton" destination="Gsd-cy-eGE" id="mWs-Lt-S4F"/>
                         <outlet property="membercountLabel" destination="BK6-1V-ORg" id="PKF-Bj-3iO"/>
+                        <segue destination="mDF-YN-ciC" kind="show" identifier="PushResult" id="khT-Eh-yYW"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9sh-4J-gBA" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1768,8 +1767,7 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
-                                    <action selector="resuleBtn:" destination="BYZ-38-t0r" eventType="touchUpInside" id="A86-Ka-Rsl"/>
-                                    <segue destination="dGk-Fv-st0" kind="presentation" id="g4f-9w-dPZ"/>
+                                    <action selector="topBuck:" destination="mDF-YN-ciC" eventType="touchUpInside" id="WAJ-HW-cg2"/>
                                 </connections>
                             </button>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TGZ-mW-XA8">
@@ -1837,6 +1835,6 @@
         <image name="warikan1.png" width="458" height="287"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="p68-As-076"/>
+        <segue reference="khT-Eh-yYW"/>
     </inferredMetricsTieBreakers>
 </document>
