@@ -38,13 +38,6 @@ enum RoundUnit {
     case yen500
 }
 
-//Stringを拡張(末尾を１文字削除)
-extension String{
-    mutating func dropLast(){
-        self = String(self.characters.dropLast())
-    }
-}
-
 class ViewController: UIViewController {
     
     //ラベル・ボタンの参照
