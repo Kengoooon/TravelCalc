@@ -215,7 +215,7 @@ class Post_settlementViewController: UIViewController,UITextViewDelegate{
     @IBAction func zerozeroButton(_ sender: UIButton) {
         zeroinput(number: "00")
     }
-    
+
     //計算関数１
     func Calculator() -> (String ,UILabel){
         switch inputSource {
