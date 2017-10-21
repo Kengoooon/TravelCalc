@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		63D1BAD894608CF66C5BE5E5 /* Pods_SimpleCalc.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 75AA23B707994D6C2BAEDDD4 /* Pods_SimpleCalc.framework */; };
+		A0F88B344026229C929372EC /* Pods_SimpleCalcUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A853AD3CF9FFB25994417E6A /* Pods_SimpleCalcUITests.framework */; };
+		B6D29C02D90767BEB9F5E3C6 /* Pods_SimpleCalcTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0CE36AE8C1CC65C99952C741 /* Pods_SimpleCalcTests.framework */; };
 		BFA800B51E0C10AD0048882C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFA800B41E0C10AD0048882C /* AppDelegate.swift */; };
 		BFA800B71E0C10AD0048882C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFA800B61E0C10AD0048882C /* ViewController.swift */; };
 		BFA800BA1E0C10AD0048882C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BFA800B81E0C10AD0048882C /* Main.storyboard */; };
@@ -20,6 +23,18 @@
 		BFDACB7A1E1532B700BE8BD0 /* ResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFDACB791E1532B700BE8BD0 /* ResultViewController.swift */; };
 		BFDACB7C1E15BE0300BE8BD0 /* SelectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFDACB7B1E15BE0300BE8BD0 /* SelectViewController.swift */; };
 		BFDACB7E1E1918F300BE8BD0 /* Post-settlementViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFDACB7D1E1918F300BE8BD0 /* Post-settlementViewController.swift */; };
+		BFEE04B51F934ED900BCF9C3 /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BFEE04B41F934ED900BCF9C3 /* AdSupport.framework */; };
+		BFEE04B71F934EEA00BCF9C3 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BFEE04B61F934EEA00BCF9C3 /* AudioToolbox.framework */; };
+		BFEE04B91F934EF000BCF9C3 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BFEE04B81F934EF000BCF9C3 /* AVFoundation.framework */; };
+		BFEE04BB1F934EFA00BCF9C3 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BFEE04BA1F934EFA00BCF9C3 /* CoreGraphics.framework */; };
+		BFEE04BD1F934F0100BCF9C3 /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BFEE04BC1F934F0100BCF9C3 /* CoreMedia.framework */; };
+		BFEE04BF1F934F0700BCF9C3 /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BFEE04BE1F934F0700BCF9C3 /* CoreTelephony.framework */; };
+		BFEE04C11F934F0E00BCF9C3 /* EventKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BFEE04C01F934F0E00BCF9C3 /* EventKit.framework */; };
+		BFEE04C31F934F1300BCF9C3 /* EventKitUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BFEE04C21F934F1300BCF9C3 /* EventKitUI.framework */; };
+		BFEE04C51F934F1B00BCF9C3 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BFEE04C41F934F1B00BCF9C3 /* MessageUI.framework */; };
+		BFEE04C71F934F2100BCF9C3 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BFEE04C61F934F2100BCF9C3 /* StoreKit.framework */; };
+		BFEE04C91F934F2600BCF9C3 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BFEE04C81F934F2600BCF9C3 /* SystemConfiguration.framework */; };
+		BFEE04CD1F934FEE00BCF9C3 /* GoogleMobileAds.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BFEE04CC1F934FCC00BCF9C3 /* GoogleMobileAds.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,6 +55,14 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0CE36AE8C1CC65C99952C741 /* Pods_SimpleCalcTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SimpleCalcTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		109E84D42D3DCC08DB4F6C2F /* Pods-SimpleCalcUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SimpleCalcUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-SimpleCalcUITests/Pods-SimpleCalcUITests.release.xcconfig"; sourceTree = "<group>"; };
+		75AA23B707994D6C2BAEDDD4 /* Pods_SimpleCalc.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SimpleCalc.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		8AD6259DED93C4159094D28D /* Pods-SimpleCalcTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SimpleCalcTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-SimpleCalcTests/Pods-SimpleCalcTests.release.xcconfig"; sourceTree = "<group>"; };
+		A10D86E358CA3DFBCCDAEDCE /* Pods-SimpleCalc.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SimpleCalc.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SimpleCalc/Pods-SimpleCalc.debug.xcconfig"; sourceTree = "<group>"; };
+		A853AD3CF9FFB25994417E6A /* Pods_SimpleCalcUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SimpleCalcUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B9B9190166E20D880EA41085 /* Pods-SimpleCalc.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SimpleCalc.release.xcconfig"; path = "Pods/Target Support Files/Pods-SimpleCalc/Pods-SimpleCalc.release.xcconfig"; sourceTree = "<group>"; };
+		BC8AA8D497CCDE821AD3C32C /* Pods-SimpleCalcUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SimpleCalcUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SimpleCalcUITests/Pods-SimpleCalcUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		BFA800B11E0C10AD0048882C /* SimpleCalc.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SimpleCalc.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BFA800B41E0C10AD0048882C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BFA800B61E0C10AD0048882C /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -59,6 +82,19 @@
 		BFDACB791E1532B700BE8BD0 /* ResultViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResultViewController.swift; sourceTree = "<group>"; };
 		BFDACB7B1E15BE0300BE8BD0 /* SelectViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectViewController.swift; sourceTree = "<group>"; };
 		BFDACB7D1E1918F300BE8BD0 /* Post-settlementViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Post-settlementViewController.swift"; sourceTree = "<group>"; };
+		BFEE04B41F934ED900BCF9C3 /* AdSupport.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdSupport.framework; path = System/Library/Frameworks/AdSupport.framework; sourceTree = SDKROOT; };
+		BFEE04B61F934EEA00BCF9C3 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+		BFEE04B81F934EF000BCF9C3 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		BFEE04BA1F934EFA00BCF9C3 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		BFEE04BC1F934F0100BCF9C3 /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
+		BFEE04BE1F934F0700BCF9C3 /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
+		BFEE04C01F934F0E00BCF9C3 /* EventKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = EventKit.framework; path = System/Library/Frameworks/EventKit.framework; sourceTree = SDKROOT; };
+		BFEE04C21F934F1300BCF9C3 /* EventKitUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = EventKitUI.framework; path = System/Library/Frameworks/EventKitUI.framework; sourceTree = SDKROOT; };
+		BFEE04C41F934F1B00BCF9C3 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
+		BFEE04C61F934F2100BCF9C3 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
+		BFEE04C81F934F2600BCF9C3 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		BFEE04CC1F934FCC00BCF9C3 /* GoogleMobileAds.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = GoogleMobileAds.framework; sourceTree = "<group>"; };
+		C469849FAA54CD5026154A78 /* Pods-SimpleCalcTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SimpleCalcTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SimpleCalcTests/Pods-SimpleCalcTests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,6 +102,19 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BFEE04CD1F934FEE00BCF9C3 /* GoogleMobileAds.framework in Frameworks */,
+				BFEE04C91F934F2600BCF9C3 /* SystemConfiguration.framework in Frameworks */,
+				BFEE04C71F934F2100BCF9C3 /* StoreKit.framework in Frameworks */,
+				BFEE04C51F934F1B00BCF9C3 /* MessageUI.framework in Frameworks */,
+				BFEE04C31F934F1300BCF9C3 /* EventKitUI.framework in Frameworks */,
+				BFEE04C11F934F0E00BCF9C3 /* EventKit.framework in Frameworks */,
+				BFEE04BF1F934F0700BCF9C3 /* CoreTelephony.framework in Frameworks */,
+				BFEE04BD1F934F0100BCF9C3 /* CoreMedia.framework in Frameworks */,
+				BFEE04BB1F934EFA00BCF9C3 /* CoreGraphics.framework in Frameworks */,
+				BFEE04B91F934EF000BCF9C3 /* AVFoundation.framework in Frameworks */,
+				BFEE04B71F934EEA00BCF9C3 /* AudioToolbox.framework in Frameworks */,
+				BFEE04B51F934ED900BCF9C3 /* AdSupport.framework in Frameworks */,
+				63D1BAD894608CF66C5BE5E5 /* Pods_SimpleCalc.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -73,6 +122,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B6D29C02D90767BEB9F5E3C6 /* Pods_SimpleCalcTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -80,12 +130,48 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A0F88B344026229C929372EC /* Pods_SimpleCalcUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		555527ECA1E624688BC126E2 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				A10D86E358CA3DFBCCDAEDCE /* Pods-SimpleCalc.debug.xcconfig */,
+				B9B9190166E20D880EA41085 /* Pods-SimpleCalc.release.xcconfig */,
+				C469849FAA54CD5026154A78 /* Pods-SimpleCalcTests.debug.xcconfig */,
+				8AD6259DED93C4159094D28D /* Pods-SimpleCalcTests.release.xcconfig */,
+				BC8AA8D497CCDE821AD3C32C /* Pods-SimpleCalcUITests.debug.xcconfig */,
+				109E84D42D3DCC08DB4F6C2F /* Pods-SimpleCalcUITests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		A397CEFE24300DC45A85C1C8 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				BFEE04CA1F934FCC00BCF9C3 /* Frameworks */,
+				BFEE04C81F934F2600BCF9C3 /* SystemConfiguration.framework */,
+				BFEE04C61F934F2100BCF9C3 /* StoreKit.framework */,
+				BFEE04C41F934F1B00BCF9C3 /* MessageUI.framework */,
+				BFEE04C21F934F1300BCF9C3 /* EventKitUI.framework */,
+				BFEE04C01F934F0E00BCF9C3 /* EventKit.framework */,
+				BFEE04BE1F934F0700BCF9C3 /* CoreTelephony.framework */,
+				BFEE04BC1F934F0100BCF9C3 /* CoreMedia.framework */,
+				BFEE04BA1F934EFA00BCF9C3 /* CoreGraphics.framework */,
+				BFEE04B81F934EF000BCF9C3 /* AVFoundation.framework */,
+				BFEE04B61F934EEA00BCF9C3 /* AudioToolbox.framework */,
+				BFEE04B41F934ED900BCF9C3 /* AdSupport.framework */,
+				75AA23B707994D6C2BAEDDD4 /* Pods_SimpleCalc.framework */,
+				0CE36AE8C1CC65C99952C741 /* Pods_SimpleCalcTests.framework */,
+				A853AD3CF9FFB25994417E6A /* Pods_SimpleCalcUITests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		BFA800A81E0C10AD0048882C = {
 			isa = PBXGroup;
 			children = (
@@ -93,6 +179,8 @@
 				BFA800C81E0C10AD0048882C /* SimpleCalcTests */,
 				BFA800D31E0C10AD0048882C /* SimpleCalcUITests */,
 				BFA800B21E0C10AD0048882C /* Products */,
+				555527ECA1E624688BC126E2 /* Pods */,
+				A397CEFE24300DC45A85C1C8 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -143,6 +231,23 @@
 			path = SimpleCalcUITests;
 			sourceTree = "<group>";
 		};
+		BFEE04CA1F934FCC00BCF9C3 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				BFEE04CB1F934FCC00BCF9C3 /* frameworks */,
+			);
+			name = Frameworks;
+			path = "Pods/Google-Mobile-Ads-SDK/Frameworks";
+			sourceTree = "<group>";
+		};
+		BFEE04CB1F934FCC00BCF9C3 /* frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				BFEE04CC1F934FCC00BCF9C3 /* GoogleMobileAds.framework */,
+			);
+			path = frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -150,9 +255,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = BFA800D91E0C10AD0048882C /* Build configuration list for PBXNativeTarget "SimpleCalc" */;
 			buildPhases = (
+				6CC7CA5794EBA563AD5DCB34 /* [CP] Check Pods Manifest.lock */,
 				BFA800AD1E0C10AD0048882C /* Sources */,
 				BFA800AE1E0C10AD0048882C /* Frameworks */,
 				BFA800AF1E0C10AD0048882C /* Resources */,
+				B7EE0E69A621D9CF020E2E37 /* [CP] Embed Pods Frameworks */,
+				F052E9EEA0D091059E83713E /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -167,9 +275,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = BFA800DC1E0C10AD0048882C /* Build configuration list for PBXNativeTarget "SimpleCalcTests" */;
 			buildPhases = (
+				56CEE9E10A20786B16264DC7 /* [CP] Check Pods Manifest.lock */,
 				BFA800C11E0C10AD0048882C /* Sources */,
 				BFA800C21E0C10AD0048882C /* Frameworks */,
 				BFA800C31E0C10AD0048882C /* Resources */,
+				2B6C22849C92ADC1C92DDBF1 /* [CP] Embed Pods Frameworks */,
+				E8158F289FD570F8F5F58C5B /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -185,9 +296,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = BFA800DF1E0C10AD0048882C /* Build configuration list for PBXNativeTarget "SimpleCalcUITests" */;
 			buildPhases = (
+				7E064B6F79C9D8F7E1BA6278 /* [CP] Check Pods Manifest.lock */,
 				BFA800CC1E0C10AD0048882C /* Sources */,
 				BFA800CD1E0C10AD0048882C /* Frameworks */,
 				BFA800CE1E0C10AD0048882C /* Resources */,
+				7E48DDCBC671CBBFE5C66D86 /* [CP] Embed Pods Frameworks */,
+				92D99EBD57E6ADFFE00FEEC4 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -276,6 +390,144 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		2B6C22849C92ADC1C92DDBF1 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SimpleCalcTests/Pods-SimpleCalcTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		56CEE9E10A20786B16264DC7 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		6CC7CA5794EBA563AD5DCB34 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		7E064B6F79C9D8F7E1BA6278 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		7E48DDCBC671CBBFE5C66D86 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SimpleCalcUITests/Pods-SimpleCalcUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		92D99EBD57E6ADFFE00FEEC4 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SimpleCalcUITests/Pods-SimpleCalcUITests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B7EE0E69A621D9CF020E2E37 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SimpleCalc/Pods-SimpleCalc-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E8158F289FD570F8F5F58C5B /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SimpleCalcTests/Pods-SimpleCalcTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F052E9EEA0D091059E83713E /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SimpleCalc/Pods-SimpleCalc-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		BFA800AD1E0C10AD0048882C /* Sources */ = {
@@ -445,11 +697,16 @@
 		};
 		BFA800DA1E0C10AD0048882C /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A10D86E358CA3DFBCCDAEDCE /* Pods-SimpleCalc.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer: Kengo Fujimoto (M7YWTJR6V6)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Kengo Fujimoto (M7YWTJR6V6)";
 				DEVELOPMENT_TEAM = ME2P39A3QN;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Pods/Google-Mobile-Ads-SDK/Frameworks/frameworks",
+				);
 				INFOPLIST_FILE = SimpleCalc/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -464,11 +721,16 @@
 		};
 		BFA800DB1E0C10AD0048882C /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B9B9190166E20D880EA41085 /* Pods-SimpleCalc.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				"CODE_SIGN_IDENTITY[sdk=*]" = "iPhone Distribution";
 				DEVELOPMENT_TEAM = ME2P39A3QN;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Pods/Google-Mobile-Ads-SDK/Frameworks/frameworks",
+				);
 				INFOPLIST_FILE = SimpleCalc/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -483,6 +745,7 @@
 		};
 		BFA800DD1E0C10AD0048882C /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = C469849FAA54CD5026154A78 /* Pods-SimpleCalcTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -497,6 +760,7 @@
 		};
 		BFA800DE1E0C10AD0048882C /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8AD6259DED93C4159094D28D /* Pods-SimpleCalcTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -511,6 +775,7 @@
 		};
 		BFA800E01E0C10AD0048882C /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = BC8AA8D497CCDE821AD3C32C /* Pods-SimpleCalcUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				INFOPLIST_FILE = SimpleCalcUITests/Info.plist;
@@ -524,6 +789,7 @@
 		};
 		BFA800E11E0C10AD0048882C /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 109E84D42D3DCC08DB4F6C2F /* Pods-SimpleCalcUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				INFOPLIST_FILE = SimpleCalcUITests/Info.plist;

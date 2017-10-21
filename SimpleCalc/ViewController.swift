@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import GoogleMobileAds
 //クラス間で共有する変数を定義
 struct CalcData{
     var cost: String = ""
@@ -38,7 +39,7 @@ enum RoundUnit {
     case yen500
 }
 
-class ViewController: UIViewController {
+class ViewController: UIViewController,GADBannerViewDelegate{
     
     //ラベル・ボタンの参照
     @IBOutlet weak var backgroundView: UIView!
@@ -59,6 +60,9 @@ class ViewController: UIViewController {
     @IBOutlet weak var multiplicationButton: UIButton!
     @IBOutlet weak var substractButton: UIButton!
     @IBOutlet weak var additionButton: UIButton!
+    
+    let AdMobID = "[Your AdMob ID]"
+    let TEST_ID = "ca-app-pub-6765299879929157/1239189704"
     
     var data = CalcData()
     //演算子の入力フラグ
@@ -567,6 +571,21 @@ class ViewController: UIViewController {
         AmembercountLabel.isUserInteractionEnabled = true
         BmembercountLabel.isUserInteractionEnabled = true
         CmembercountLabel.isUserInteractionEnabled = true
+        
+        // AdMob広告設定
+        var bannerView: GADBannerView = GADBannerView()
+        bannerView = GADBannerView(adSize:kGADAdSizeBanner)
+        bannerView.frame.origin = CGPoint(x:0, y:(self.view.frame.size.height - bannerView.frame.height))
+        bannerView.frame.size = CGSize(width:self.view.frame.width,height:bannerView.frame.height)
+        // AdMobで発行された広告ユニットIDを設定
+        bannerView.adUnitID = "ca-app-pub-6765299879929157/1239189704"
+        bannerView.delegate = self
+        bannerView.rootViewController = self
+        let gadRequest:GADRequest = GADRequest()
+        // テスト用の広告を表示する時のみ使用（申請時に削除）
+        gadRequest.testDevices = [kGADSimulatorID]
+        bannerView.load(gadRequest)
+        self.view.addSubview(bannerView)
         
         //グラデーションの設定
         let gradientLayer = CAGradientLayer()

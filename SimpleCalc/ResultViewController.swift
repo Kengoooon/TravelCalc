@@ -7,10 +7,14 @@
 //
 
 import UIKit
+import GoogleMobileAds
 
-class ResultViewController: UIViewController {
+class ResultViewController: UIViewController,GADBannerViewDelegate,GADRewardBasedVideoAdDelegate{
    
     @IBOutlet weak var backgroundView: UIView!
+    
+    let AdMobID = "[Your AdMob ID]"
+    let TEST_ID = "ca-app-pub-6765299879929157/1239189704"
     
     var data = CalcData()
     var result: String = ""
@@ -20,6 +24,13 @@ class ResultViewController: UIViewController {
     var pay1: String = ""
     var pay2: String = ""
     var pay3: String = ""
+    
+    //動画広告用設定
+    func rewardBasedVideoAd(_ rewardBasedVideoAd: GADRewardBasedVideoAd, didRewardUserWith reward: GADAdReward) {
+        //
+        print("Reward received with currency: \(reward.type), amount \(reward.amount).")
+        
+    }
     
     //丸め単位に応じた結果計算関数
     func resultCalc(roundingCost:RoundUnit) -> String{
@@ -42,6 +53,23 @@ class ResultViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        // AdMob広告設定
+        var bannerView: GADBannerView = GADBannerView()
+        bannerView = GADBannerView(adSize:kGADAdSizeBanner)
+        bannerView.frame.origin = CGPoint(x:0, y:(self.view.frame.size.height - bannerView.frame.height))
+        bannerView.frame.size = CGSize(width:self.view.frame.width,height:bannerView.frame.height)
+        // AdMobで発行された広告ユニットIDを設定
+        bannerView.adUnitID = "ca-app-pub-6765299879929157/1239189704"
+        //bannerView.adUnitID = "ca-app-pub-6765299879929157/3366659597"
+        bannerView.delegate = self
+        bannerView.rootViewController = self
+        let gadRequest:GADRequest = GADRequest()
+        // テスト用の広告を表示する時のみ使用（申請時に削除）
+        gadRequest.testDevices = [kGADSimulatorID]
+        bannerView.load(gadRequest)
+        self.view.addSubview(bannerView)
+        
+
         //事前精算時の処理関数
         func resultOutput(){
             if data.cost != "" && data.member != ""{
@@ -222,7 +250,12 @@ class ResultViewController: UIViewController {
 
     }
     @IBAction func topBuck(_ sender: UIButton) {
+        //動画広告用設定
+        //GADRewardBasedVideoAd.sharedInstance().delegate = self
+        //GADRewardBasedVideoAd.sharedInstance().load(GADRequest(),withAdUnitID: "ca-app-pub-6765299879929157/3366659597")
         self.presentingViewController?.presentingViewController?.dismiss(animated: true, completion: nil)
+        
+        
         //self.dismiss(animated: true, completion: nil)
     }
     
